@@ -1,0 +1,42 @@
+---
+import { site } from '../data/site';
+
+const data = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${site.url}/#organization`,
+      name: site.legalName,
+      alternateName: site.brand,
+      url: site.url,
+      logo: `${site.url}/images/gcams-logo.png`,
+      foundingDate: '2026-09-08',
+      identifier: [
+        { '@type': 'PropertyValue', name: 'Registration number', value: site.registrationNumber },
+        { '@type': 'PropertyValue', name: 'Licence number', value: site.licenceNumber },
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Business Centre, 3rd Floor, Building A3, Business Park',
+        addressLocality: 'Dubai South',
+        addressRegion: 'Dubai',
+        addressCountry: 'AE',
+      },
+      telephone: site.phoneUaeTel,
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${site.url}/#service`,
+      name: site.brand,
+      url: site.url,
+      image: `${site.url}/images/og-image.png`,
+      description: site.positioning,
+      areaServed: ['AE', 'IN'],
+      provider: { '@id': `${site.url}/#organization` },
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

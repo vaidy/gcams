@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const title = 'About';
+const description =
+  'GCAMS is an independent corporate advisory and management consultancy incorporated in Dubai, with leadership by Ramaswamy Chidambaram.';
+---
+
+<Base title={title} description={description} path="/about">
+  <section class="page-hero">
+    <div class="wrap prose">
+      <h1>An independent firm in Dubai</h1>
+      <p>
+        GCAMS is an independent corporate advisory and management consultancy incorporated in Dubai, UAE. The firm was established to provide experienced, practical and commercially grounded advice to organisations navigating growth, transformation, financial stress, transactions and cross-border opportunities.
+      </p>
+      <p>
+        Our work is built around disciplined analysis, clear communication and implementable recommendations. Depending on the assignment, GCAMS may also collaborate with appropriately licensed legal, audit, tax, valuation, technical and insolvency professionals.
+      </p>
+      <p class="muted small">Incorporated {site.incorporationDate} as a {site.legalStatus}.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two-col two-col--about">
+      <div class="portrait-slot" aria-hidden="true"></div>
+      <div class="prose">
+        <h2>{site.managerPublic}</h2>
+        <p class="muted">{site.managerRole} and registered Company Manager</p>
+        <p>
+          Ramaswamy Chidambaram is the Founder and Principal Advisor of GCAMS and the registered Company Manager. He is a Chartered Accountant and Cost Accountant with more than 25 years of professional experience in the UAE, together with insolvency and restructuring experience in India. He is an Insolvency Professional registered with the Insolvency and Bankruptcy Board of India and a registered Insolvency Practitioner with the DIFC Registrar of Companies under the DIFC Insolvency Law No. 1 of 2019.
+        </p>
+        <p>
+          His career includes senior finance and commercial leadership roles across diversified groups and operating businesses. His experience covers corporate finance, financial strategy, business restructuring, mergers and acquisitions, debt raising, financial due diligence, management reporting, budgeting, internal controls, SAP and business-intelligence implementation, and operational performance improvement. He has practical experience in Corporate Insolvency Resolution Process and liquidation matters from a resolution applicant's perspective, including financial due diligence, negotiations and coordination with the resolution professional and other stakeholders. On behalf of the resolution applicant, he also coordinated matters connected with proceedings before the NCLT, NCLAT and Supreme Court, working with the appointed legal and professional advisers.
+        </p>
+        <p>
+          He brings a combination of board-level perspective and hands-on execution, with particular experience in healthcare and environmental services, industrial and trading businesses, telecom and diversified corporate environments.
+        </p>
+        <p class="small muted">
+          ACA | CMA | Insolvency Professional registered with IBBI | Insolvency Practitioner registered with the DIFC Registrar of Companies
+        </p>
+        <p class="small muted">
+          GCAMS is building a multidisciplinary advisory platform supported by experienced Chartered Accountants, Cost Accountants, Insolvency Professionals and other specialists. Individual team members or associates are displayed only after their role, biography, photograph and consent have been confirmed.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

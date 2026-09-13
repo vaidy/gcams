@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { site } from '../../data/site';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+
+const title = 'Capability overview';
+const description =
+  'Print-friendly overview of GCAMS: licensed activities, services, leadership credentials and contact particulars.';
+---
+
+<Base title={title} description={description} path="/insights/capability-overview">
+  <article class="page-hero">
+    <div class="wrap prose">
+      <h1>{site.legalName}</h1>
+      <p>{site.positioning}</p>
+      <p class="muted small">{site.shortDescriptor}</p>
+
+      <h2>Licensed activities</h2>
+      <ul>
+        <li>Economic Advisory</li>
+        <li>Corporate and Institutional Management Services</li>
+        <li>Management Consultancies</li>
+        <li>Design of Accounting Methods or Procedures, Cost Accounting Programmes and Budgetary Control Procedures</li>
+        <li>Feasibility Studies Consultancies</li>
+      </ul>
+
+      <h2>Services</h2>
+      {
+        services.map((item) => (
+          <section>
+            <h3>{item.data.title}</h3>
+            <p>{item.data.homeDescription}</p>
+          </section>
+        ))
+      }
+
+      <h2>Leadership</h2>
+      <p>
+        {site.managerPublic}, {site.managerRole}. {site.difcWording} He is also an Insolvency Professional registered with the Insolvency and Bankruptcy Board of India.
+      </p>
+
+      <h2>Particulars</h2>
+      <p>
+        Licence No. {site.licenceNumber}. Registration No. {site.registrationNumber}. Incorporated {site.incorporationDate}.
+      </p>
+      <p>{site.addressUae}</p>
+      <p>{site.indiaLabel}: {site.addressIndia}</p>
+      <p>
+        UAE {site.phoneUae}. India {site.phoneIndia}.
+      </p>
+
+      <p class="disclaimer">{site.servicesDisclaimer}</p>
+    </div>
+  </article>
+</Base>

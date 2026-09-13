@@ -1,0 +1,34 @@
+:root {
+  --paper: #f6f3ee;
+  --paper-deep: #efe8dc;
+  --ink: #0d2845;
+  --ink-muted: #4a5d70;
+  --gold: #bb9249;
+  --gold-soft: #c4a46a;
+  --line: color-mix(in srgb, var(--ink) 14%, transparent);
+  --focus: var(--gold);
+
+  --font-serif: 'Source Serif 4', 'Source Serif Pro', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --measure: 40rem;
+  --measure-wide: 68rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --header-h: 4.5rem;
+
+  --step-0: 1rem;
+  --step-1: clamp(1.05rem, 0.96rem + 0.4vw, 1.2rem);
+  --step-2: clamp(1.35rem, 1.1rem + 1vw, 1.85rem);
+  --step-3: clamp(1.85rem, 1.3rem + 2.2vw, 2.75rem);
+  --step-4: clamp(2.4rem, 1.5rem + 3.6vw, 3.85rem);
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.25rem;
+  --space-5: 3.5rem;
+  --space-6: 5.5rem;
+  --space-7: 8rem;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

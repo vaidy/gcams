@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const sectors = (await getCollection('sectors')).sort((a, b) => a.data.order - b.data.order);
+
+const title = 'Sectors';
+const description =
+  'GCAMS applies finance, commercial and operational experience across healthcare, industry, telecom, infrastructure, family groups and special situations.';
+---
+
+<Base title={title} description={description} path="/sectors">
+  <section class="page-hero">
+    <div class="wrap prose">
+      <h1>Commercial relevance, not a directory</h1>
+      <p>
+        GCAMS applies finance, commercial and operational experience across sectors. Each engagement is tailored to the client's business model, regulatory setting and decision requirements.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <ul class="sector-list">
+        {
+          sectors.map((item) => (
+            <li>
+              <h3>{item.data.title}</h3>
+              <p class="muted">{item.data.capability}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Base>

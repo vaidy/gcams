@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { approach, site, whyGcams } from '../data/site';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const sectors = (await getCollection('sectors')).sort((a, b) => a.data.order - b.data.order);
+
+const title = 'Corporate Advisory in the UAE and India';
+const description =
+  'UAE-based corporate advisory and management consultancy for finance transformation, restructuring, feasibility and cross-border support across the UAE and India.';
+---
+
+<Base title={title} description={description} path="/">
+  <section class="page-hero page-hero--home">
+    <div class="wrap">
+      <h1>{site.heroHeading}</h1>
+      <p class="lede">{site.heroText}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/contact">{site.primaryCta}</a>
+        <a class="btn btn--ghost" href="/services">{site.secondaryCta}</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>An independent advisory firm</h2>
+      <p>
+        Global Corporate Advisory and Management Services DWC-LLC combines senior finance leadership, operational understanding and restructuring experience to help clients evaluate opportunities, strengthen financial management, resolve business challenges and execute informed decisions. Our approach is independent, analytical and implementation-focused.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>How GCAMS works with clients</h2>
+      <ul class="pillar-list">
+        {
+          services.map((item) => (
+            <li>
+              <h3>{item.data.homeTitle}</h3>
+              <p class="muted">{item.data.homeDescription}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn--ghost" href="/services">Read the full service notes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Experience that can be verified</h2>
+      <ul class="why-list">
+        {
+          whyGcams.map((item) => (
+            <li>
+              <p>{item}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap prose">
+      <h2>DIFC registration</h2>
+      <p>{site.difcWording}</p>
+      <p class="muted small">
+        The DIFC registration is evidenced by his listing in the official Register of Insolvency Practitioners, with date of registration shown as {site.difcDate}.
+        {' '}
+        <a href="/credentials">Read the approved wording</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Where this experience is used</h2>
+      <ul class="sector-list">
+        {
+          sectors.map((item) => (
+            <li>
+              <h3>{item.data.title}</h3>
+              <p class="muted">{item.data.capability}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>How an engagement proceeds</h2>
+      <ol class="approach-list">
+        {
+          approach.map((item, index) => (
+            <li>
+              <span class="idx" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p class="muted">{item.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap prose">
+      <h2>Start a confidential conversation</h2>
+      <p>Discuss a business challenge, transaction or transformation requirement with GCAMS. Initial conversations will be treated confidentially.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/contact">{site.primaryCta}</a>
+      </div>
+    </div>
+  </section>
+</Base>

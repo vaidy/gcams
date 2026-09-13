@@ -1,0 +1,60 @@
+---
+import { site } from '../data/site';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="site-header" data-site-header>
+  <div class="wrap site-header__inner">
+    <a
+      class="brand"
+      href="/"
+      aria-label="GCAMS home"
+      aria-current={pathname === '/' ? 'page' : undefined}
+    >
+      <img
+        src="/images/gcams-logo.png"
+        srcset="/images/gcams-logo.png 786w, /images/gcams-logo@2x.png 1600w"
+        sizes="184px"
+        width="786"
+        height="181"
+        fetchpriority="high"
+        alt="GCAMS, Global Corporate Advisory and Management Services"
+      />
+    </a>
+    <button
+      class="nav-toggle"
+      type="button"
+      data-nav-toggle
+      aria-expanded="false"
+      aria-controls="site-nav"
+    >
+      Menu
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      {
+        site.nav.map((item) => (
+          <a
+            href={item.href}
+            aria-current={pathname === item.href ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a class="btn btn--primary header-cta" href="/contact">{site.headerCta}</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-site-header]');
+  const toggle = document.querySelector('[data-nav-toggle]');
+  if (header instanceof HTMLElement && toggle instanceof HTMLButtonElement) {
+    toggle.addEventListener('click', () => {
+      const open = header.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.textContent = open ? 'Close' : 'Menu';
+    });
+  }
+</script>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="GCAMS">
+  <rect width="64" height="64" fill="#F6F3EE"/>
+  <path fill="#0D2845" d="M32 10c-12.15 0-22 9.85-22 22s9.85 22 22 22c7.4 0 13.92-3.66 17.86-9.24l-6.2-4.02A13.96 13.96 0 0 1 32 48c-8.84 0-16-7.16-16-16s7.16-16 16-16c5.2 0 9.78 2.48 12.7 6.3h-8.7v6.2H52V10H32z"/>
+  <path fill="none" stroke="#BB9249" stroke-width="2.4" stroke-linecap="round" d="M26 33.2c3.4-2.6 8.6-2.6 12 0"/>
+</svg>

@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import { site } from '../data/site';
+
+const title = 'Contact';
+const description =
+  'Start a confidential conversation with GCAMS in Dubai. Telephone and WhatsApp for the UAE and India liaison contact.';
+---
+
+<Base title={title} description={description} path="/contact">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="two-col">
+        <div>
+          <h1>{site.contactHeading}</h1>
+          <p class="lede">{site.contactIntro}</p>
+          <EnquiryForm />
+        </div>
+        <aside class="contact-aside">
+          <div>
+            <h2>Registered office</h2>
+            <p>{site.addressUae}</p>
+          </div>
+          <div>
+            <h2>UAE telephone and WhatsApp</h2>
+            <p>{site.phoneUae}</p>
+            <div class="contact-actions">
+              <a class="btn btn--primary" href={`tel:${site.phoneUaeTel}`}>Call UAE</a>
+              <a
+                class="btn btn--ghost"
+                href={`https://wa.me/${site.phoneUaeTel.replace('+', '')}`}
+                rel="noopener noreferrer"
+              >
+                WhatsApp UAE
+              </a>
+            </div>
+          </div>
+          <div>
+            <h2>{site.indiaLabel}</h2>
+            <p>{site.addressIndia}</p>
+            <p>{site.phoneIndia}</p>
+            <div class="contact-actions">
+              <a class="btn btn--ghost" href={`tel:${site.phoneIndiaTel}`}>Call India</a>
+              <a
+                class="btn btn--ghost"
+                href={`https://wa.me/${site.phoneIndiaTel.replace('+', '')}`}
+                rel="noopener noreferrer"
+              >
+                WhatsApp India
+              </a>
+            </div>
+          </div>
+          <div>
+            <h2>Email</h2>
+            {
+              site.email ? (
+                <p>
+                  <a href={`mailto:${site.email}`}>{site.email}</a>
+                </p>
+              ) : (
+                <p class="muted">The official mailbox local-part is not yet confirmed. Use telephone or WhatsApp until it is published.</p>
+              )
+            }
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Base>

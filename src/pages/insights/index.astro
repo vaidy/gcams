@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('insights', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const title = 'Insights';
+const description =
+  'Notes, regulatory commentary and a capability overview from GCAMS on corporate advisory in the UAE and India.';
+---
+
+<Base title={title} description={description} path="/insights">
+  <section class="page-hero">
+    <div class="wrap prose">
+      <h1>Notes as they are published</h1>
+      <p class="lede">
+        Articles, regulatory notes and event announcements will appear here. The archive is ready; nothing is invented to fill it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      {
+        posts.length === 0 ? (
+          <div class="empty-archive prose">
+            <p>
+              Notes and regulatory commentary will appear here as they are published.
+            </p>
+            <p>
+              Until then, the <a href="/insights/capability-overview">capability overview</a> sets out the firm, the licensed activities and the work GCAMS is prepared to take on.
+            </p>
+          </div>
+        ) : (
+          <ol class="insight-list">
+            {posts.map((post) => (
+              <li>
+                <a href={`/insights/${post.id}`}>
+                  <p class="small muted">
+                    {post.data.date.toLocaleDateString('en-GB', {
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric',
+                    })}
+                  </p>
+                  <h2>{post.data.title}</h2>
+                  <p class="muted">{post.data.description}</p>
+                </a>
+              </li>
+            ))}
+          </ol>
+        )
+      }
+    </div>
+  </section>
+</Base>

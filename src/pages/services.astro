@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+
+const title = 'Services';
+const description =
+  'Corporate advisory, finance transformation, restructuring, transaction support, feasibility and UAE-India coordination from GCAMS in Dubai.';
+---
+
+<Base title={title} description={description} path="/services">
+  <section class="page-hero">
+    <div class="wrap prose">
+      <h1>Advisory work within the licensed activities</h1>
+      <p class="lede">
+        GCAMS provides practical corporate, financial and management advisory support. Each assignment is scoped to the decision, the stakeholders and the timetable.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      {
+        services.map((item) => (
+          <article class="service-block" id={item.id}>
+            <h2>{item.data.title}</h2>
+            <p class="muted">{item.data.homeDescription}</p>
+            <ul>
+              {item.data.items.map((line) => (
+                <li>{line}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+      <p class="disclaimer">{site.servicesDisclaimer}</p>
+    </div>
+  </section>
+</Base>

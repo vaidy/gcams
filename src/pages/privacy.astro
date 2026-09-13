@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const title = 'Privacy Notice';
+const description =
+  'How GCAMS handles enquiry data from this website. No confidential attachments are collected through the public form.';
+---
+
+<Base title={title} description={description} path="/privacy">
+  <article class="page-hero">
+    <div class="wrap prose">
+      <h1>Privacy Notice</h1>
+      <p class="muted small">Last updated 12 September 2026. This notice is a website draft, not a substitute for legal advice.</p>
+
+      <h2>Who we are</h2>
+      <p>
+        {site.legalName} (“GCAMS”) is the controller of personal data submitted through this website. Registered office: {site.addressUae}. Licence No. {site.licenceNumber}. Registration No. {site.registrationNumber}.
+      </p>
+
+      <h2>What this site collects</h2>
+      <p>
+        If you use the enquiry form, GCAMS may receive your name, organisation, designation, email address, telephone or WhatsApp number, country, the service you selected, and the message you write. A record that you consented to this Privacy Notice is kept with the enquiry.
+      </p>
+      <p>
+        The public form does not accept file uploads. Do not send passports, bank statements, court papers or other confidential attachments through this website.
+      </p>
+      <p>
+        Until the official GCAMS email is confirmed, the form does not transmit data. Telephone and WhatsApp conversations are outside this website and follow the usual rules for those channels.
+      </p>
+
+      <h2>Why we use it</h2>
+      <p>
+        Enquiry data is used only to decide whether the request is within scope, to reply, and to keep a short record of the conversation. GCAMS does not sell personal data and does not use enquiry contents for advertising.
+      </p>
+
+      <h2>Where it goes</h2>
+      <p>
+        When form delivery is enabled, each enquiry will be sent to the official GCAMS domain mailbox, not to a personal Gmail address. Hosting and form processors, if later appointed, will be named here before they receive live data.
+      </p>
+
+      <h2>How long we keep it</h2>
+      <p>
+        Enquiry records are kept for as long as needed to complete the conversation and any resulting engagement, and then for a limited period required for professional or legal records. They are then deleted or archived under ordinary business controls.
+      </p>
+
+      <h2>Your choices</h2>
+      <p>
+        You may ask what data GCAMS holds about an enquiry you sent, ask for a correction, or ask for deletion where we are not required to keep the record. Use the telephone numbers on the Contact page, or the official email once it is published.
+      </p>
+
+      <h2>Cookies and analytics</h2>
+      <p>
+        This version of the site does not set analytics or advertising cookies. If a privacy-conscious analytics tool is added later, this notice will be updated and consent will be obtained where required.
+      </p>
+    </div>
+  </article>
+</Base>

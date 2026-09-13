@@ -1,0 +1,94 @@
+---
+import { formServices } from '../data/site';
+---
+
+<form class="form" data-enquiry-form novalidate>
+  <div class="field">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" autocomplete="name" required />
+  </div>
+  <div class="field">
+    <label for="organisation">Organisation</label>
+    <input id="organisation" name="organisation" type="text" autocomplete="organization" required />
+  </div>
+  <div class="field">
+    <label for="designation">Designation</label>
+    <input id="designation" name="designation" type="text" autocomplete="organization-title" required />
+  </div>
+  <div class="field">
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      autocomplete="email"
+      spellcheck="false"
+      inputmode="email"
+      placeholder="name@company.com…"
+      required
+    />
+  </div>
+  <div class="field">
+    <label for="phone">Phone / WhatsApp</label>
+    <input
+      id="phone"
+      name="phone"
+      type="tel"
+      autocomplete="tel"
+      inputmode="tel"
+      placeholder="+971 50 000 0000…"
+      required
+    />
+  </div>
+  <div class="field">
+    <label for="country">Country</label>
+    <input
+      id="country"
+      name="country"
+      type="text"
+      autocomplete="country-name"
+      placeholder="United Arab Emirates…"
+      required
+    />
+  </div>
+  <div class="field">
+    <label for="service">Service required</label>
+    <select id="service" name="service" required>
+      <option value="">Select a service…</option>
+      {formServices.map((item) => <option value={item}>{item}</option>)}
+    </select>
+  </div>
+  <div class="field">
+    <label for="message">Brief message</label>
+    <textarea
+      id="message"
+      name="message"
+      placeholder="A short description of the decision or assignment…"
+      required
+    ></textarea>
+  </div>
+  <label class="consent">
+    <input id="consent" name="consent" type="checkbox" required />
+    <span>
+      I have read the <a href="/privacy">Privacy Notice</a> and agree to GCAMS contacting me about this enquiry. Do not attach passports, bank statements, court papers or other confidential files.
+    </span>
+  </label>
+  <button class="btn btn--primary btn--disabled" type="submit" disabled>Send an enquiry</button>
+  <p class="form-note" data-form-status role="status" aria-live="polite">
+    The enquiry form will send to the official GCAMS email once that address is confirmed. Until then, please use the telephone or WhatsApp numbers on this page.
+  </p>
+</form>
+
+<script>
+  const form = document.querySelector('[data-enquiry-form]');
+  const status = document.querySelector('[data-form-status]');
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (status) {
+        status.textContent =
+          'Enquiry delivery is not yet active. Please telephone or message GCAMS on WhatsApp.';
+      }
+    });
+  }
+</script>

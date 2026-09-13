@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const title = 'Terms of Use';
+const description =
+  'Website terms, professional disclaimer and jurisdiction for Global Corporate Advisory and Management Services DWC-LLC.';
+---
+
+<Base title={title} description={description} path="/terms">
+  <article class="page-hero">
+    <div class="wrap prose">
+      <h1>Terms of Use</h1>
+      <p class="muted small">Last updated 12 September 2026. This page is a website draft, not a client engagement letter.</p>
+
+      <h2>The site</h2>
+      <p>
+        This website is published by {site.legalName} (“GCAMS”) at {site.url}. It describes services that fall within the firm’s licensed activities. It is not an offer of legal, audit, tax-agency, valuation, investment or court-appointed insolvency services.
+      </p>
+
+      <h2>No client relationship</h2>
+      <p>
+        Reading this site, sending an enquiry, or speaking by telephone does not create a professional appointment. An assignment begins only when GCAMS and the client agree scope, fees and exclusions in writing.
+      </p>
+
+      <h2>Accuracy and restraint</h2>
+      <p>
+        Information is provided in good faith and may change. GCAMS does not guarantee outcomes, recoveries, investor participation, court results or regulatory approvals. Do not rely on this site as the sole basis for a financial or legal decision.
+      </p>
+
+      <h2>Professional disclaimer</h2>
+      <p>{site.servicesDisclaimer}</p>
+      <p>
+        {site.difcWording} That registration does not mean GCAMS or {site.managerPublic} holds a current court appointment on any matter mentioned on this site. “Official Liquidator” is not used as a general title.
+      </p>
+
+      <h2>India contact</h2>
+      <p>
+        The India address is an {site.indiaLabel} / correspondence address. It is not described as a branch, representative office or established place of business.
+      </p>
+
+      <h2>Intellectual property</h2>
+      <p>
+        The GCAMS name, wordmark and site contents belong to GCAMS unless another owner is named. You may not copy the site for commercial use without written permission.
+      </p>
+
+      <h2>Jurisdiction</h2>
+      <p>
+        These terms are governed by the laws of the United Arab Emirates as they apply in Dubai, including the rules applicable to a DWC-LLC. Courts in Dubai have jurisdiction, without limiting any mandatory rights that apply to you.
+      </p>
+    </div>
+  </article>
+</Base>
