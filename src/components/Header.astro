@@ -41,6 +41,7 @@ function isActive(href: string): boolean {
       {
         site.nav.map((item) => (
           <a
+            class="site-nav__link"
             href={withBase(item.href)}
             aria-current={isActive(item.href) ? 'page' : undefined}
           >
@@ -48,7 +49,7 @@ function isActive(href: string): boolean {
           </a>
         ))
       }
-      <a class="btn btn--primary header-cta" href={withBase('/contact')}>{site.headerCta}</a>
+      <a class="btn btn--primary site-nav__cta" href={withBase('/contact')}>{site.headerCta}</a>
     </nav>
   </div>
 </header>
