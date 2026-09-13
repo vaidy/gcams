@@ -1,20 +1,26 @@
 ---
 import { site } from '../data/site';
+import { withBase } from '../utils/withBase';
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+function isActive(href: string): boolean {
+  const target = withBase(href).replace(/\/$/, '') || '/';
+  return pathname === target;
+}
 ---
 
 <header class="site-header" data-site-header>
   <div class="wrap site-header__inner">
     <a
       class="brand"
-      href="/"
+      href={withBase('/')}
       aria-label="GCAMS home"
-      aria-current={pathname === '/' ? 'page' : undefined}
+      aria-current={isActive('/') ? 'page' : undefined}
     >
       <img
-        src="/images/gcams-logo.png"
-        srcset="/images/gcams-logo.png 786w, /images/gcams-logo@2x.png 1600w"
+        src={withBase('/images/gcams-logo.png')}
+        srcset={`${withBase('/images/gcams-logo.png')} 786w, ${withBase('/images/gcams-logo@2x.png')} 1600w`}
         sizes="184px"
         width="786"
         height="181"
@@ -35,14 +41,14 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
       {
         site.nav.map((item) => (
           <a
-            href={item.href}
-            aria-current={pathname === item.href ? 'page' : undefined}
+            href={withBase(item.href)}
+            aria-current={isActive(item.href) ? 'page' : undefined}
           >
             {item.label}
           </a>
         ))
       }
-      <a class="btn btn--primary header-cta" href="/contact">{site.headerCta}</a>
+      <a class="btn btn--primary header-cta" href={withBase('/contact')}>{site.headerCta}</a>
     </nav>
   </div>
 </header>

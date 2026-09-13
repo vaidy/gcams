@@ -25,6 +25,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          # github.io project URL is /gcams/ — remove this when gcamsadvisory.com is live (base becomes /).
+          ASTRO_BASE: /gcams
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

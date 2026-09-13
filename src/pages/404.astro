@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { withBase } from '../utils/withBase';
 ---
 
 <Base
@@ -12,8 +13,8 @@ import Base from '../layouts/Base.astro';
       <h1>This page is not on the site</h1>
       <p>The address may be mistyped, or the page has not been published yet.</p>
       <div class="btn-row">
-        <a class="btn btn--primary" href="/">Return home</a>
-        <a class="btn btn--ghost" href="/contact">Contact GCAMS</a>
+        <a class="btn btn--primary" href={withBase('/')}>Return home</a>
+        <a class="btn btn--ghost" href={withBase('/contact')}>Contact GCAMS</a>
       </div>
     </div>
   </section>

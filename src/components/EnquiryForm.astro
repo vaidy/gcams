@@ -1,5 +1,6 @@
 ---
 import { formServices } from '../data/site';
+import { withBase } from '../utils/withBase';
 ---
 
 <form class="form" data-enquiry-form novalidate>
@@ -70,7 +71,7 @@ import { formServices } from '../data/site';
   <label class="consent">
     <input id="consent" name="consent" type="checkbox" required />
     <span>
-      I have read the <a href="/privacy">Privacy Notice</a> and agree to GCAMS contacting me about this enquiry. Do not attach passports, bank statements, court papers or other confidential files.
+      I have read the <a href={withBase('/privacy')}>Privacy Notice</a> and agree to GCAMS contacting me about this enquiry. Do not attach passports, bank statements, court papers or other confidential files.
     </span>
   </label>
   <button class="btn btn--primary btn--disabled" type="submit" disabled>Send an enquiry</button>

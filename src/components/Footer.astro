@@ -1,5 +1,6 @@
 ---
 import { site } from '../data/site';
+import { withBase } from '../utils/withBase';
 ---
 
 <footer class="site-footer">
@@ -20,10 +21,10 @@ import { site } from '../data/site';
     </div>
     <div>
       <nav class="footer-links" aria-label="Footer">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
+        <a href={withBase('/privacy')}>Privacy</a>
+        <a href={withBase('/terms')}>Terms</a>
         {site.linkedIn ? <a href={site.linkedIn} rel="noopener noreferrer">LinkedIn</a> : null}
-        <a href="/contact">Contact</a>
+        <a href={withBase('/contact')}>Contact</a>
       </nav>
       <p class="footer-copy">
         © 2026 {site.legalName}. All rights reserved.

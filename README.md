@@ -38,6 +38,8 @@ The enquiry form is visible but **does not send** until `site.email` is set and 
 1. Create a GitHub repo the **GCAMS account** will own (`gcamsadvisory/website` or transfer after first push).
 2. In the repo: **Settings → Pages → Source: GitHub Actions**.
 3. Push `main` (or `master`). The workflow at `.github/workflows/deploy.yml` builds and deploys `dist`.
+
+Until **gcamsadvisory.com** is connected, the preview URL is `https://<user>.github.io/gcams/`. The build sets `ASTRO_BASE=/gcams` so CSS, images and links resolve under that subpath. **Remove `ASTRO_BASE` from the workflow** (or set it to empty) once the custom domain is live — the domain serves the site from `/`, not `/gcams/`.
 4. After the first green deploy, **Settings → Pages → Custom domain**: `gcamsadvisory.com`. The `public/CNAME` file already contains that host.
 
 ### Namecheap DNS

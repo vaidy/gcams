@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { withBase } from '../../utils/withBase';
 
 const posts = (await getCollection('insights', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -30,14 +31,14 @@ const description =
               Notes and regulatory commentary will appear here as they are published.
             </p>
             <p>
-              Until then, the <a href="/insights/capability-overview">capability overview</a> sets out the firm, the licensed activities and the work GCAMS is prepared to take on.
+              Until then, the <a href={withBase('/insights/capability-overview')}>capability overview</a> sets out the firm, the licensed activities and the work GCAMS is prepared to take on.
             </p>
           </div>
         ) : (
           <ol class="insight-list">
             {posts.map((post) => (
               <li>
-                <a href={`/insights/${post.id}`}>
+                <a href={withBase(`/insights/${post.id}`)}>
                   <p class="small muted">
                     {post.data.date.toLocaleDateString('en-GB', {
                       day: 'numeric',
