@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
+import PageContinue from '../components/PageContinue.astro';
+import PageKicker from '../components/PageKicker.astro';
+import { site, wayfinding } from '../data/site';
 
 const title = 'About';
 const description =
@@ -10,6 +12,7 @@ const description =
 <Base title={title} description={description} path="/about">
   <section class="page-hero">
     <div class="wrap prose">
+      <PageKicker label={wayfinding['/about'].kicker} />
       <h1>An independent firm in Dubai</h1>
       <p>
         GCAMS is an independent corporate advisory and management consultancy incorporated in Dubai, UAE. The firm was established to provide experienced, practical and commercially grounded advice to organisations navigating growth, transformation, financial stress, transactions and cross-border opportunities.
@@ -21,7 +24,7 @@ const description =
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--band">
     <div class="wrap two-col two-col--about">
       <div class="portrait-slot" aria-hidden="true"></div>
       <div class="prose">
@@ -49,4 +52,5 @@ const description =
       </div>
     </div>
   </section>
+  <PageContinue links={wayfinding['/about'].next} />
 </Base>

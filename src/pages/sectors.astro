@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import PageContinue from '../components/PageContinue.astro';
+import PageKicker from '../components/PageKicker.astro';
+import { wayfinding } from '../data/site';
 
 const sectors = (await getCollection('sectors')).sort((a, b) => a.data.order - b.data.order);
 
@@ -12,6 +15,7 @@ const description =
 <Base title={title} description={description} path="/sectors">
   <section class="page-hero">
     <div class="wrap prose">
+      <PageKicker label={wayfinding['/sectors'].kicker} />
       <h1>Commercial relevance, not a directory</h1>
       <p>
         GCAMS applies finance, commercial and operational experience across sectors. Each engagement is tailored to the client's business model, regulatory setting and decision requirements.
@@ -19,7 +23,7 @@ const description =
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--tight section--band">
     <div class="wrap">
       <ul class="sector-list">
         {
@@ -33,4 +37,5 @@ const description =
       </ul>
     </div>
   </section>
+  <PageContinue links={wayfinding['/sectors'].next} />
 </Base>

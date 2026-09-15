@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageKicker from '../components/PageKicker.astro';
 import { withBase } from '../utils/withBase';
 ---
 
@@ -10,6 +11,7 @@ import { withBase } from '../utils/withBase';
 >
   <section class="page-hero">
     <div class="wrap prose">
+      <PageKicker label="Not found" />
       <h1>This page is not on the site</h1>
       <p>The address may be mistyped, or the page has not been published yet.</p>
       <div class="btn-row">

@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
+import PageContinue from '../components/PageContinue.astro';
+import PageKicker from '../components/PageKicker.astro';
+import { site, wayfinding } from '../data/site';
 
 const title = 'Privacy Notice';
 const description =
@@ -10,6 +12,7 @@ const description =
 <Base title={title} description={description} path="/privacy">
   <article class="page-hero">
     <div class="wrap prose">
+      <PageKicker label={wayfinding['/privacy'].kicker} />
       <h1>Privacy Notice</h1>
       <p class="muted small">Last updated 12 September 2026. This notice is a website draft, not a substitute for legal advice.</p>
 
@@ -55,4 +58,5 @@ const description =
       </p>
     </div>
   </article>
+  <PageContinue links={wayfinding['/privacy'].next} />
 </Base>

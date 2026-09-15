@@ -1,5 +1,5 @@
 ---
-import { site, whatsappUaeUrl } from '../data/site';
+import { site } from '../data/site';
 import { withBase } from '../utils/withBase';
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -12,12 +12,7 @@ function isActive(href: string): boolean {
 
 <header class="site-header" data-site-header>
   <div class="wrap site-header__inner">
-    <a
-      class="brand"
-      href={withBase('/')}
-      aria-label="GCAMS home"
-      aria-current={isActive('/') ? 'page' : undefined}
-    >
+    <a class="brand" href={withBase('/')} aria-label="GCAMS home">
       <img
         src={withBase('/images/gcams-logo.png')}
         srcset={`${withBase('/images/gcams-logo.png')} 786w, ${withBase('/images/gcams-logo@2x.png')} 1600w`}
@@ -49,14 +44,6 @@ function isActive(href: string): boolean {
           </a>
         ))
       }
-      {
-        site.linkedIn ? (
-          <a class="site-nav__link" href={site.linkedIn} rel="noopener noreferrer">
-            LinkedIn
-          </a>
-        ) : null
-      }
-      <a class="btn btn--ghost site-nav__cta" href={whatsappUaeUrl} rel="noopener noreferrer">WhatsApp</a>
       <a class="btn btn--primary site-nav__cta" href={withBase('/contact')}>{site.headerCta}</a>
     </nav>
   </div>

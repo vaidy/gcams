@@ -1,7 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
+import PageContinue from '../components/PageContinue.astro';
+import PageKicker from '../components/PageKicker.astro';
+import { site, wayfinding } from '../data/site';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 
@@ -13,6 +15,7 @@ const description =
 <Base title={title} description={description} path="/services">
   <section class="page-hero">
     <div class="wrap prose">
+      <PageKicker label={wayfinding['/services'].kicker} />
       <h1>Advisory work within the licensed activities</h1>
       <p class="lede">
         GCAMS provides practical corporate, financial and management advisory support. Each assignment is scoped to the decision, the stakeholders and the timetable.
@@ -20,7 +23,7 @@ const description =
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--tight section--band">
     <div class="wrap">
       {
         services.map((item) => (
@@ -38,4 +41,5 @@ const description =
       <p class="disclaimer">{site.servicesDisclaimer}</p>
     </div>
   </section>
+  <PageContinue links={wayfinding['/services'].next} />
 </Base>

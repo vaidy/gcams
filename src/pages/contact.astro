@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import EnquiryForm from '../components/EnquiryForm.astro';
-import { site, whatsappIndiaUrl, whatsappUaeUrl } from '../data/site';
+import PageContinue from '../components/PageContinue.astro';
+import PageKicker from '../components/PageKicker.astro';
+import { site, wayfinding, whatsappIndiaUrl, whatsappUaeUrl } from '../data/site';
 
 const title = 'Contact';
 const description =
@@ -13,6 +15,7 @@ const description =
     <div class="wrap">
       <div class="two-col">
         <div>
+          <PageKicker label={wayfinding['/contact'].kicker} />
           <h1>{site.contactHeading}</h1>
           <p class="lede">{site.contactIntro}</p>
           <EnquiryForm />
@@ -77,4 +80,5 @@ const description =
       </div>
     </div>
   </section>
+  <PageContinue links={wayfinding['/contact'].next} />
 </Base>

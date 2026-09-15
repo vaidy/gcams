@@ -38,12 +38,70 @@ export const site = {
   servicesDisclaimer:
     'GCAMS provides corporate, economic, management, accounting-process and feasibility advisory services within the scope of its licence. Investor outreach is undertaken only under an appropriate written mandate and does not constitute investment advice, securities promotion, brokerage, an assurance of investor participation or authority to bind the seller, lender, resolution professional or liquidator. Legal advice, statutory audit, regulated tax agency services, valuation opinions, investment advice, court appointments and formal insolvency appointments are provided only where GCAMS or the relevant professional is duly authorised, registered or separately engaged.',
   nav: [
+    { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
     { href: '/sectors', label: 'Sectors' },
     { href: '/credentials', label: 'Credentials' },
     { href: '/contact', label: 'Contact' },
   ],
+} as const;
+
+/** Location label and next-step links for inner pages. Home is added in PageContinue. */
+export const wayfinding = {
+  '/about': {
+    kicker: 'About',
+    next: [
+      { href: '/services', label: 'Services' },
+      { href: '/credentials', label: 'Credentials' },
+      { href: '/contact', label: 'Start a conversation' },
+    ],
+  },
+  '/services': {
+    kicker: 'Services',
+    next: [
+      { href: '/sectors', label: 'Sectors' },
+      { href: '/about', label: 'About the firm' },
+      { href: '/contact', label: 'Start a conversation' },
+    ],
+  },
+  '/sectors': {
+    kicker: 'Sectors',
+    next: [
+      { href: '/services', label: 'Services' },
+      { href: '/credentials', label: 'Credentials' },
+      { href: '/contact', label: 'Start a conversation' },
+    ],
+  },
+  '/credentials': {
+    kicker: 'Credentials',
+    next: [
+      { href: '/about', label: 'About the firm' },
+      { href: '/services', label: 'Services' },
+      { href: '/contact', label: 'Start a conversation' },
+    ],
+  },
+  '/contact': {
+    kicker: 'Contact',
+    next: [
+      { href: '/services', label: 'Services' },
+      { href: '/about', label: 'About the firm' },
+    ],
+  },
+  '/privacy': {
+    kicker: 'Privacy',
+    next: [
+      { href: '/terms', label: 'Terms of use' },
+      { href: '/contact', label: 'Contact' },
+    ],
+  },
+  '/terms': {
+    kicker: 'Terms',
+    next: [
+      { href: '/privacy', label: 'Privacy notice' },
+      { href: '/contact', label: 'Contact' },
+    ],
+  },
 } as const;
 
 export const whatsappUaeUrl = `https://wa.me/${site.phoneUaeTel.replace('+', '')}`;

@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
+import PageContinue from '../components/PageContinue.astro';
+import PageKicker from '../components/PageKicker.astro';
+import { site, wayfinding } from '../data/site';
 
 const title = 'Terms of Use';
 const description =
@@ -10,6 +12,7 @@ const description =
 <Base title={title} description={description} path="/terms">
   <article class="page-hero">
     <div class="wrap prose">
+      <PageKicker label={wayfinding['/terms'].kicker} />
       <h1>Terms of Use</h1>
       <p class="muted small">Last updated 12 September 2026. This page is a website draft, not a client engagement letter.</p>
 
@@ -50,4 +53,5 @@ const description =
       </p>
     </div>
   </article>
+  <PageContinue links={wayfinding['/terms'].next} />
 </Base>
