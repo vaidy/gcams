@@ -15,7 +15,7 @@ const { Content } = await render(post);
 const path = `/insights/${post.id}`;
 ---
 
-<Base title={post.data.title} description={post.data.description} path={path}>
+<Base title={post.data.title} description={post.data.description} path={path} noindex>
   <article class="page-hero">
     <div class="wrap prose">
       <p class="small muted">

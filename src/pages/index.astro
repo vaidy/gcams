@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { approach, site, whyGcams } from '../data/site';
+import ServiceIcon from '../components/icons/ServiceIcon.astro';
+import { approach, credentialsLine, site, whatsappUaeUrl } from '../data/site';
 import { withBase } from '../utils/withBase';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
@@ -20,7 +21,23 @@ const description =
       <div class="btn-row">
         <a class="btn btn--primary" href={withBase('/contact')}>{site.primaryCta}</a>
         <a class="btn btn--ghost" href={withBase('/services')}>{site.secondaryCta}</a>
+        <a class="btn btn--ghost" href={whatsappUaeUrl} rel="noopener noreferrer">WhatsApp</a>
       </div>
+      <ol class="cred-line">
+        {
+          credentialsLine.map((item) => (
+            <li>
+              {'href' in item && item.href ? (
+                <a href={item.href} rel="noopener noreferrer">
+                  {item.text}
+                </a>
+              ) : (
+                item.text
+              )}
+            </li>
+          ))
+        }
+      </ol>
     </div>
   </section>
 
@@ -38,10 +55,11 @@ const description =
   <section class="section section--tight">
     <div class="wrap">
       <h2>How GCAMS works with clients</h2>
-      <ul class="pillar-list">
+      <ul class="card-grid">
         {
           services.map((item) => (
-            <li>
+            <li class="service-card">
+              <ServiceIcon id={item.id} />
               <h3>{item.data.homeTitle}</h3>
               <p class="muted">{item.data.homeDescription}</p>
             </li>
@@ -49,51 +67,26 @@ const description =
         }
       </ul>
       <div class="btn-row">
-        <a class="btn btn--ghost" href={withBase('/services')}>Read the full service notes</a>
+        <a class="btn btn--ghost" href={withBase('/services')}>All services</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <h2>Experience that can be verified</h2>
-      <ul class="why-list">
-        {
-          whyGcams.map((item) => (
-            <li>
-              <p>{item}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="wrap prose">
-      <h2>DIFC registration</h2>
-      <p>{site.difcWording}</p>
-      <p class="muted small">
-        The DIFC registration is evidenced by his listing in the official Register of Insolvency Practitioners, with date of registration shown as {site.difcDate}.
-        {' '}
-        <a href={withBase('/credentials')}>Read the approved wording</a>.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
       <h2>Where this experience is used</h2>
-      <ul class="sector-list">
+      <ul class="sector-chips">
         {
           sectors.map((item) => (
             <li>
-              <h3>{item.data.title}</h3>
-              <p class="muted">{item.data.capability}</p>
+              <a href={`${withBase('/sectors')}#${item.id}`}>{item.data.title}</a>
             </li>
           ))
         }
       </ul>
+      <div class="btn-row">
+        <a class="btn btn--ghost" href={withBase('/sectors')}>All sectors</a>
+      </div>
     </div>
   </section>
 
@@ -122,6 +115,7 @@ const description =
       <p>Discuss a business challenge, transaction or transformation requirement with GCAMS. Initial conversations will be treated confidentially.</p>
       <div class="btn-row">
         <a class="btn btn--primary" href={withBase('/contact')}>{site.primaryCta}</a>
+        <a class="btn btn--ghost" href={whatsappUaeUrl} rel="noopener noreferrer">WhatsApp</a>
       </div>
     </div>
   </section>

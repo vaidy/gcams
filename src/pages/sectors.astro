@@ -24,7 +24,7 @@ const description =
       <ul class="sector-list">
         {
           sectors.map((item) => (
-            <li>
+            <li id={item.id}>
               <h3>{item.data.title}</h3>
               <p class="muted">{item.data.capability}</p>
             </li>

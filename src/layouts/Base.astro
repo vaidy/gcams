@@ -17,9 +17,10 @@ interface Props {
   title: string;
   description: string;
   path: string;
+  noindex?: boolean;
 }
 
-const { title, description, path } = Astro.props;
+const { title, description, path, noindex = false } = Astro.props;
 const canonical = new URL(path === '/' ? '/' : path, site.url).href;
 const pageTitle = path === '/' ? `${site.brand} | ${title}` : `${title} | ${site.brand}`;
 ---
@@ -33,6 +34,7 @@ const pageTitle = path === '/' ? `${site.brand} | ${title}` : `${title} | ${site
     <meta name="theme-color" content="#F6F3EE" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <link rel="icon" href={withBase('/favicon.ico')} />

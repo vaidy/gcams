@@ -1,5 +1,6 @@
 ---
-import { site } from '../data/site';
+import SocialLinks from './SocialLinks.astro';
+import { site, whatsappUaeUrl } from '../data/site';
 import { withBase } from '../utils/withBase';
 ---
 
@@ -12,8 +13,8 @@ import { withBase } from '../utils/withBase';
         Licence No. {site.licenceNumber} | Registration No. {site.registrationNumber} | Dubai South, Dubai, UAE
       </p>
       <p class="footer-meta">
-        {site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : 'Official email to be confirmed'}
-        {' | '}
+        {site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : null}
+        {site.email ? ' | ' : null}
         <a href={site.url}>{site.url.replace('https://', '')}</a>
         {' | '}
         <a href={`tel:${site.phoneUaeTel}`}>{site.phoneUae}</a>
@@ -23,9 +24,13 @@ import { withBase } from '../utils/withBase';
       <nav class="footer-links" aria-label="Footer">
         <a href={withBase('/privacy')}>Privacy</a>
         <a href={withBase('/terms')}>Terms</a>
+        <a href={whatsappUaeUrl} rel="noopener noreferrer">WhatsApp</a>
         {site.linkedIn ? <a href={site.linkedIn} rel="noopener noreferrer">LinkedIn</a> : null}
         <a href={withBase('/contact')}>Contact</a>
       </nav>
+      <div class="footer-social">
+        <SocialLinks />
+      </div>
       <p class="footer-copy">
         © 2026 {site.legalName}. All rights reserved.
       </p>

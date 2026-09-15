@@ -10,6 +10,13 @@ export default defineConfig({
   site: 'https://gcamsadvisory.com',
   base,
   trailingSlash: 'never',
-  integrations: [sitemap()],
+  redirects: {
+    '/insights': base || '/',
+  },
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/insights'),
+    }),
+  ],
 });
 

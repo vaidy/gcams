@@ -1,0 +1,18 @@
+---
+import { site, whatsappUaeUrl } from '../data/site';
+
+interface Props {
+  class?: string;
+}
+
+const className = Astro.props.class ?? 'social-links';
+---
+
+<div class={className}>
+  <a class="btn btn--ghost" href={whatsappUaeUrl} rel="noopener noreferrer">WhatsApp</a>
+  {
+    site.linkedIn ? (
+      <a class="btn btn--ghost" href={site.linkedIn} rel="noopener noreferrer">LinkedIn</a>
+    ) : null
+  }
+</div>

@@ -117,6 +117,15 @@ p:last-child {
   max-width: var(--measure);
 }
 
+/* Keep reading measure, but do not shrink-and-center the whole wrap. */
+.wrap.prose {
+  max-width: none;
+}
+
+.wrap.prose > :where(h1, h2, h3, p, ul, ol, .lede, .btn-row) {
+  max-width: var(--measure);
+}
+
 .section {
   padding-block: var(--space-6);
 }

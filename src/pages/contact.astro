@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import EnquiryForm from '../components/EnquiryForm.astro';
-import { site } from '../data/site';
+import { site, whatsappIndiaUrl, whatsappUaeUrl } from '../data/site';
 
 const title = 'Contact';
 const description =
@@ -29,7 +29,7 @@ const description =
               <a class="btn btn--primary" href={`tel:${site.phoneUaeTel}`}>Call UAE</a>
               <a
                 class="btn btn--ghost"
-                href={`https://wa.me/${site.phoneUaeTel.replace('+', '')}`}
+                href={whatsappUaeUrl}
                 rel="noopener noreferrer"
               >
                 WhatsApp UAE
@@ -44,25 +44,35 @@ const description =
               <a class="btn btn--ghost" href={`tel:${site.phoneIndiaTel}`}>Call India</a>
               <a
                 class="btn btn--ghost"
-                href={`https://wa.me/${site.phoneIndiaTel.replace('+', '')}`}
+                href={whatsappIndiaUrl}
                 rel="noopener noreferrer"
               >
                 WhatsApp India
               </a>
             </div>
           </div>
-          <div>
-            <h2>Email</h2>
-            {
-              site.email ? (
+          {
+            site.email ? (
+              <div>
+                <h2>Email</h2>
                 <p>
                   <a href={`mailto:${site.email}`}>{site.email}</a>
                 </p>
-              ) : (
-                <p class="muted">The official mailbox local-part is not yet confirmed. Use telephone or WhatsApp until it is published.</p>
-              )
-            }
-          </div>
+              </div>
+            ) : null
+          }
+          {
+            site.linkedIn ? (
+              <div>
+                <h2>LinkedIn</h2>
+                <p>
+                  <a href={site.linkedIn} rel="noopener noreferrer">
+                    Ramaswamy Chidambaram
+                  </a>
+                </p>
+              </div>
+            ) : null
+          }
         </aside>
       </div>
     </div>

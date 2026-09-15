@@ -1,5 +1,5 @@
 ---
-import { site } from '../data/site';
+import { site, whatsappUaeUrl } from '../data/site';
 import { withBase } from '../utils/withBase';
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -49,6 +49,14 @@ function isActive(href: string): boolean {
           </a>
         ))
       }
+      {
+        site.linkedIn ? (
+          <a class="site-nav__link" href={site.linkedIn} rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        ) : null
+      }
+      <a class="btn btn--ghost site-nav__cta" href={whatsappUaeUrl} rel="noopener noreferrer">WhatsApp</a>
       <a class="btn btn--primary site-nav__cta" href={withBase('/contact')}>{site.headerCta}</a>
     </nav>
   </div>

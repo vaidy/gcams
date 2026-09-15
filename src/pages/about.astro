@@ -39,9 +39,13 @@ const description =
         <p class="small muted">
           ACA | CMA | Insolvency Professional registered with IBBI | Insolvency Practitioner registered with the DIFC Registrar of Companies
         </p>
-        <p class="small muted">
-          GCAMS is building a multidisciplinary advisory platform supported by experienced Chartered Accountants, Cost Accountants, Insolvency Professionals and other specialists. Individual team members or associates are displayed only after their role, biography, photograph and consent have been confirmed.
-        </p>
+        {
+          site.linkedIn ? (
+            <p>
+              <a href={site.linkedIn} rel="noopener noreferrer">LinkedIn</a>
+            </p>
+          ) : null
+        }
       </div>
     </div>
   </section>

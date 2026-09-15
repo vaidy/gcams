@@ -17,7 +17,7 @@ export const site = {
     'Business Centre, 3rd Floor, Building A3, Business Park, Dubai South, Dubai, UAE',
   addressIndia: '34, Fourth Street, Tatabad, Coimbatore, Tamil Nadu, India',
   indiaLabel: 'India liaison contact',
-  linkedIn: null as string | null,
+  linkedIn: 'https://www.linkedin.com/in/ramchidambaram-ip/',
   shortDescriptor:
     'Corporate Advisory | Finance Transformation | Restructuring | Feasibility | Cross-Border Support',
   positioning:
@@ -42,10 +42,20 @@ export const site = {
     { href: '/services', label: 'Services' },
     { href: '/sectors', label: 'Sectors' },
     { href: '/credentials', label: 'Credentials' },
-    { href: '/insights', label: 'Insights' },
     { href: '/contact', label: 'Contact' },
   ],
 } as const;
+
+export const whatsappUaeUrl = `https://wa.me/${site.phoneUaeTel.replace('+', '')}`;
+export const whatsappIndiaUrl = `https://wa.me/${site.phoneIndiaTel.replace('+', '')}`;
+
+export const credentialsLine = [
+  { text: '25+ years’ UAE experience' },
+  { text: 'ACA' },
+  { text: 'CMA' },
+  { text: 'IBBI-registered Insolvency Professional' },
+  { text: 'DIFC-registered Insolvency Practitioner', href: site.difcUrl },
+] as const;
 
 export const whyGcams = [
   'More than 25 years of UAE leadership experience across finance, operations and commercial management.',
