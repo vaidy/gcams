@@ -102,15 +102,44 @@ const formReady = accessKey.length > 0;
     }
   </p>
 </form>
+<dialog class="enquiry-dialog" data-enquiry-success aria-labelledby="enquiry-success-copy">
+  <p id="enquiry-success-copy">Thank you. GCAMS has received your enquiry and will reply.</p>
+  <button class="btn btn--primary" type="button" data-enquiry-success-close>Close</button>
+</dialog>
 
 <script>
   const form = document.querySelector('[data-enquiry-form]');
   const status = document.querySelector('[data-form-status]');
   const submit = document.querySelector('[data-enquiry-submit]');
+  const successDialog = document.querySelector('[data-enquiry-success]');
   const accessKey = form instanceof HTMLFormElement ? form.dataset.web3formsKey : undefined;
+  const idleNote = status?.textContent ?? '';
 
   function setStatus(message: string) {
     if (status) status.textContent = message;
+  }
+
+  function showSuccessDialog() {
+    if (!(successDialog instanceof HTMLDialogElement)) {
+      console.error('[enquiry] success dialog missing');
+      setStatus('Thank you. GCAMS has received your enquiry and will reply.');
+      return;
+    }
+    console.info('[enquiry] opening success dialog');
+    successDialog.showModal();
+  }
+
+  if (successDialog instanceof HTMLDialogElement) {
+    const closeButton = successDialog.querySelector('[data-enquiry-success-close]');
+    if (closeButton instanceof HTMLButtonElement) {
+      closeButton.addEventListener('click', () => {
+        console.info('[enquiry] closing success dialog');
+        successDialog.close();
+      });
+    }
+    successDialog.addEventListener('click', (event) => {
+      if (event.target === successDialog) successDialog.close();
+    });
   }
 
   if (form instanceof HTMLFormElement && submit instanceof HTMLButtonElement && accessKey) {
@@ -155,9 +184,11 @@ const formReady = accessKey.length > 0;
           throw new Error(result.message || `The form could not be sent (${response.status}).`);
         }
         form.reset();
-        setStatus('Thank you. GCAMS has received your enquiry and will reply.');
+        setStatus(idleNote);
+        showSuccessDialog();
       } catch (error) {
         const detail = error instanceof Error ? error.message : 'The form could not be sent.';
+        console.error('[enquiry] send failed', error);
         setStatus(`${detail} You can also write to ${form.dataset.enquiryEmail ?? 'the email on this page'}, or use telephone or WhatsApp.`);
       } finally {
         submit.disabled = false;

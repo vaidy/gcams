@@ -318,6 +318,25 @@
   font-size: 0.92rem;
 }
 
+.enquiry-dialog {
+  width: min(28rem, calc(100vw - 2rem));
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--gold) 55%, transparent);
+}
+
+.enquiry-dialog::backdrop {
+  background: color-mix(in srgb, var(--ink) 48%, transparent);
+}
+
+.enquiry-dialog p {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+}
+
 .contact-aside {
   display: grid;
   gap: 1.25rem;
@@ -394,7 +413,8 @@
   .site-header,
   .site-footer,
   .skip-link,
-  .btn-row {
+  .btn-row,
+  .enquiry-dialog {
     display: none !important;
   }
 
