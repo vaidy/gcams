@@ -17,6 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Environment secrets (WEB3FORMS_ACCESS_KEY on github-pages) are only
+    # available to jobs that name this environment. The deploy job already does.
+    environment: github-pages
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
