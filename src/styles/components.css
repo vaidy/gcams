@@ -252,9 +252,18 @@
 }
 
 .form {
+  position: relative;
   display: grid;
   gap: 1rem;
   max-width: 36rem;
+}
+
+.field--honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .field {
@@ -328,6 +337,21 @@
 .two-col {
   display: grid;
   gap: var(--space-5);
+}
+
+.two-col--about h2 {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.two-col--about h3 {
+  margin-bottom: 0.35rem;
+  font-size: var(--step-3);
 }
 
 @media (min-width: 900px) {

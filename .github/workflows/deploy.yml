@@ -28,6 +28,7 @@ jobs:
         env:
           # github.io project URL is /gcams/ — remove this when gcamsadvisory.com is live (base becomes /).
           ASTRO_BASE: /gcams
+          PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

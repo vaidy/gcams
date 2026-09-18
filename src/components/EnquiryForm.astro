@@ -1,9 +1,21 @@
 ---
-import { formServices } from '../data/site';
+import { formServices, site } from '../data/site';
 import { withBase } from '../utils/withBase';
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+const formReady = accessKey.length > 0;
 ---
 
-<form class="form" data-enquiry-form novalidate>
+<form
+  class="form"
+  data-enquiry-form
+  data-enquiry-email={site.email}
+  data-web3forms-key={formReady ? accessKey : undefined}
+>
+  <div class="field field--honeypot" aria-hidden="true">
+    <label for="botcheck">Leave empty</label>
+    <input id="botcheck" name="botcheck" type="checkbox" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  </div>
   <div class="field">
     <label for="name">Name</label>
     <input id="name" name="name" type="text" autocomplete="name" required />
@@ -74,22 +86,87 @@ import { withBase } from '../utils/withBase';
       I have read the <a href={withBase('/privacy')}>Privacy Notice</a> and agree to GCAMS contacting me about this enquiry. Do not attach passports, bank statements, court papers or other confidential files.
     </span>
   </label>
-  <button class="btn btn--primary btn--disabled" type="submit" disabled>Send an enquiry</button>
+  <button
+    class:list={['btn', 'btn--primary', { 'btn--disabled': !formReady }]}
+    type="submit"
+    disabled={!formReady}
+    data-enquiry-submit
+  >
+    Send an enquiry
+  </button>
   <p class="form-note" data-form-status role="status" aria-live="polite">
-    The enquiry form will send to the official GCAMS email once that address is confirmed. Until then, please use the telephone or WhatsApp numbers on this page.
+    {
+      formReady
+        ? `Enquiries are sent to ${site.email}.`
+        : 'The enquiry form is not available in this preview. Use the telephone, WhatsApp, or email on this page.'
+    }
   </p>
 </form>
 
 <script>
   const form = document.querySelector('[data-enquiry-form]');
   const status = document.querySelector('[data-form-status]');
-  if (form instanceof HTMLFormElement) {
+  const submit = document.querySelector('[data-enquiry-submit]');
+  const accessKey = form instanceof HTMLFormElement ? form.dataset.web3formsKey : undefined;
+
+  function setStatus(message: string) {
+    if (status) status.textContent = message;
+  }
+
+  if (form instanceof HTMLFormElement && submit instanceof HTMLButtonElement && accessKey) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const data = new FormData(form);
+      const payload = {
+        access_key: accessKey,
+        subject: 'GCAMS website enquiry',
+        from_name: String(data.get('name') ?? ''),
+        name: String(data.get('name') ?? ''),
+        email: String(data.get('email') ?? ''),
+        organisation: String(data.get('organisation') ?? ''),
+        designation: String(data.get('designation') ?? ''),
+        phone: String(data.get('phone') ?? ''),
+        country: String(data.get('country') ?? ''),
+        service: String(data.get('service') ?? ''),
+        message: String(data.get('message') ?? ''),
+        consent: data.get('consent') ? 'yes' : 'no',
+        botcheck: data.get('botcheck') ? 'true' : '',
+      };
+
+      submit.disabled = true;
+      setStatus('Sending…');
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+        const result = (await response.json()) as { success?: boolean; message?: string };
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || `The form could not be sent (${response.status}).`);
+        }
+        form.reset();
+        setStatus('Thank you. GCAMS has received your enquiry and will reply.');
+      } catch (error) {
+        const detail = error instanceof Error ? error.message : 'The form could not be sent.';
+        setStatus(`${detail} You can also write to ${form.dataset.enquiryEmail ?? 'the email on this page'}, or use telephone or WhatsApp.`);
+      } finally {
+        submit.disabled = false;
+      }
+    });
+  } else if (form instanceof HTMLFormElement) {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      if (status) {
-        status.textContent =
-          'Enquiry delivery is not yet active. Please telephone or message GCAMS on WhatsApp.';
-      }
+      setStatus('The enquiry form is not available in this preview. Use the telephone, WhatsApp, or email on this page.');
     });
   }
 </script>
