@@ -4,7 +4,8 @@ import Base from '../layouts/Base.astro';
 import PageContinue from '../components/PageContinue.astro';
 import PageKicker from '../components/PageKicker.astro';
 import ServiceIcon from '../components/icons/ServiceIcon.astro';
-import { site, wayfinding } from '../data/site';
+import { photographs, site, wayfinding } from '../data/site';
+import { withBase } from '../utils/withBase';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 
@@ -23,7 +24,17 @@ const description =
           From financial performance to restructuring and investment reviews, we help you assess the situation and move forward.
         </p>
       </div>
-      <div class="photo-slot" aria-hidden="true"></div>
+      <div class="photo-slot">
+        <img
+          src={withBase(photographs.services.src)}
+          alt={photographs.services.alt}
+          width={photographs.services.width}
+          height={photographs.services.height}
+          decoding="async"
+          loading="lazy"
+          fetchpriority="low"
+        />
+      </div>
     </div>
   </section>
 

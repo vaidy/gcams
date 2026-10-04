@@ -48,6 +48,33 @@ export const site = {
   ],
 } as const;
 
+/**
+ * Homepage, About, and Services photographs.
+ * Source: original generated photographs, 4 October 2026.
+ * Licence: original assets created for this website.
+ * They are not photographs of GCAMS premises, staff, or a client assignment.
+ */
+export const photographs = {
+  home: {
+    src: '/images/home-business-district.webp',
+    width: 1152,
+    height: 864,
+    alt: 'A contemporary stone-and-glass building in a Dubai business district, in late-afternoon sun under a clear blue sky.',
+  },
+  about: {
+    src: '/images/about-workspace.webp',
+    width: 1152,
+    height: 864,
+    alt: 'An empty modern workspace with a pale wood table and a glass wall looking onto bright daylight.',
+  },
+  services: {
+    src: '/images/services-operations.webp',
+    width: 1152,
+    height: 864,
+    alt: 'A quiet warehouse aisle in daylight, with plain cartons on metal racks and an open door at the far end.',
+  },
+} as const;
+
 /** Location label and next-step links for inner pages. Home is added in PageContinue. */
 export const wayfinding = {
   '/about': {

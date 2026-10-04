@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import NeedIcon from '../components/icons/NeedIcon.astro';
 import ServiceIcon from '../components/icons/ServiceIcon.astro';
-import { approach, clientNeeds, credentialsLine, industries, site, whatsappUaeUrl } from '../data/site';
+import { approach, clientNeeds, credentialsLine, industries, photographs, site, whatsappUaeUrl } from '../data/site';
 import { withBase } from '../utils/withBase';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
@@ -23,7 +23,16 @@ const description = site.heroText;
           <a class="btn btn--ghost" href={withBase('/services')}>{site.secondaryCta}</a>
         </div>
       </div>
-      <div class="photo-slot" aria-hidden="true"></div>
+      <div class="photo-slot">
+        <img
+          src={withBase(photographs.home.src)}
+          alt={photographs.home.alt}
+          width={photographs.home.width}
+          height={photographs.home.height}
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
     </div>
   </section>
 

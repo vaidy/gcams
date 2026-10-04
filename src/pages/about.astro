@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageContinue from '../components/PageContinue.astro';
 import PageKicker from '../components/PageKicker.astro';
-import { industries, site, wayfinding } from '../data/site';
+import { industries, photographs, site, wayfinding } from '../data/site';
 import { withBase } from '../utils/withBase';
 
 const title = 'About';
@@ -19,7 +19,17 @@ const description = site.positioning;
           GCAMS is a Dubai based corporate advisory and management consultancy. We support businesses, investors, lenders and professional advisers with financial decisions, restructuring and business improvement.
         </p>
       </div>
-      <div class="photo-slot" aria-hidden="true"></div>
+      <div class="photo-slot">
+        <img
+          src={withBase(photographs.about.src)}
+          alt={photographs.about.alt}
+          width={photographs.about.width}
+          height={photographs.about.height}
+          decoding="async"
+          loading="lazy"
+          fetchpriority="low"
+        />
+      </div>
     </div>
   </section>
 
