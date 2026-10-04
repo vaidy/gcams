@@ -11,37 +11,39 @@ export const site = {
   email: 'ram@gcamsadvisory.com',
   phoneUae: '+971 50 694 2879',
   phoneUaeTel: '+971506942879',
-  phoneIndia: '+91 75581 88822',
-  phoneIndiaTel: '+917558188822',
   addressUae:
     'Business Centre, 3rd Floor, Building A3, Business Park, Dubai South, Dubai, UAE',
-  indiaPublic: 'India Liaison: Coimbatore, Tamil Nadu, India',
   linkedIn: 'https://www.linkedin.com/in/ramchidambaram-ip/',
   shortDescriptor:
-    'Corporate Advisory | Finance Transformation | Restructuring | Feasibility | Cross-Border Support',
+    'Corporate Advisory | CFO and Finance Support | Restructuring and Insolvency Support | Transactions and Feasibility | GCC Investor Outreach | Cross Border Support',
   positioning:
-    'GCAMS is a UAE-based corporate advisory and management consultancy helping businesses, investors, lenders and professional stakeholders address financial complexity, improve performance and make informed strategic decisions across the UAE, India and cross-border situations.',
-  heroHeading: 'Clarity for Complex Business and Financial Decisions',
+    'GCAMS is a Dubai based corporate advisory and management consultancy. We support businesses, investors, lenders and professional advisers with financial decisions, restructuring and business improvement.',
+  heroHeading: 'Clear advice. A stronger way forward.',
   heroText:
-    'GCAMS provides practical corporate, financial and management advisory support to businesses, investors, lenders and professional stakeholders across the UAE, India and cross-border engagements.',
-  primaryCta: 'Schedule a Confidential Discussion',
+    'GCAMS helps businesses strengthen finances, navigate change and assess opportunities. Based in Dubai, we bring practical finance leadership and restructuring experience.',
+  primaryCta: 'Let’s discuss your business',
   headerCta: 'Schedule a discussion',
-  secondaryCta: 'Explore Our Services',
+  secondaryCta: 'Explore our services',
   contactHeading: 'Start a Confidential Conversation',
-  contactIntro:
-    'Please share a brief description of your requirement. GCAMS will respond to discuss the appropriate next step and whether the assignment is within its scope.',
+  contactIntro: 'Tell us briefly what you need. We will contact you to discuss the next step.',
+  closeHeading: 'Let’s find the next step.',
+  closeText:
+    'Talk to GCAMS about your business, financial challenge or investment decision.',
+  closeCta: 'Start a confidential conversation',
   difcWording:
     'Ramaswamy Chidambaram is a registered Insolvency Practitioner with the DIFC Registrar of Companies under the DIFC Insolvency Law No. 1 of 2019.',
   difcDate: '23 June 2026',
   difcUrl: 'https://www.difc.com/business/liquidator-auditors',
+  // Confirm this number against the IBBI certificate before publication. Do not add SR-795299 unless the registration document matches it.
+  ibbiRegistration: 'IBBI/IPA-001/IP-P-02976/2025-2026/14635',
   servicesDisclaimer:
     'GCAMS provides corporate, economic, management, accounting-process and feasibility advisory services within the scope of its licence. Investor outreach is undertaken only under an appropriate written mandate and does not constitute investment advice, securities promotion, brokerage, an assurance of investor participation or authority to bind the seller, lender, resolution professional or liquidator. Legal advice, statutory audit, regulated tax agency services, valuation opinions, investment advice, court appointments and formal insolvency appointments are provided only where GCAMS or the relevant professional is duly authorised, registered or separately engaged.',
+  servicesNote:
+    'Services are agreed within our licensed scope. Investor outreach requires a written mandate. Formal insolvency appointments and regulated services require relevant authorisation and separate engagement.',
   nav: [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
-    { href: '/sectors', label: 'Sectors' },
-    { href: '/credentials', label: 'Credentials' },
+    { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ],
 } as const;
@@ -59,16 +61,8 @@ export const wayfinding = {
   '/services': {
     kicker: 'Services',
     next: [
-      { href: '/sectors', label: 'Sectors' },
+      { href: '/about#industry-experience', label: 'Industry experience' },
       { href: '/about', label: 'About the firm' },
-      { href: '/contact', label: 'Start a conversation' },
-    ],
-  },
-  '/sectors': {
-    kicker: 'Sectors',
-    next: [
-      { href: '/services', label: 'Services' },
-      { href: '/credentials', label: 'Credentials' },
       { href: '/contact', label: 'Start a conversation' },
     ],
   },
@@ -104,14 +98,14 @@ export const wayfinding = {
 } as const;
 
 export const whatsappUaeUrl = `https://wa.me/${site.phoneUaeTel.replace('+', '')}`;
-export const whatsappIndiaUrl = `https://wa.me/${site.phoneIndiaTel.replace('+', '')}`;
 
 export const credentialsLine = [
-  { text: '25+ years’ UAE experience' },
+  { text: '25+ years in the UAE' },
   { text: 'ACA' },
   { text: 'CMA' },
-  { text: 'IBBI-registered Insolvency Professional' },
   { text: 'DIFC-registered Insolvency Practitioner', href: site.difcUrl },
+  { text: 'IBBI-registered Insolvency Professional' },
+  { text: 'INSOL International member' },
 ] as const;
 
 export const whyGcams = [
@@ -124,34 +118,55 @@ export const whyGcams = [
 
 export const approach = [
   {
-    title: 'Initial confidential discussion',
-    text: 'Understand the decision, challenge, stakeholders and timetable.',
+    title: 'Discuss',
+    text: 'Tell us the challenge and the decision ahead.',
   },
   {
-    title: 'Focused scope',
-    text: 'Agree deliverables, information requirements, responsibilities, fees and exclusions.',
+    title: 'Assess',
+    text: 'We review the facts and agree the scope.',
   },
   {
-    title: 'Independent analysis',
-    text: 'Validate data, identify gaps, test assumptions and assess options.',
-  },
-  {
-    title: 'Clear recommendations',
-    text: 'Present practical actions, financial implications, risks and priorities.',
-  },
-  {
-    title: 'Implementation support',
-    text: 'Assist management and professional stakeholders through agreed execution milestones.',
+    title: 'Act',
+    text: 'You receive clear recommendations and agreed implementation support.',
   },
 ] as const;
 
+export const clientNeeds = [
+  {
+    id: 'cash',
+    title: 'Improve cash flow',
+    text: 'Get a clearer view of cash, costs and financial performance.',
+    href: '/services#02-finance-transformation',
+  },
+  {
+    id: 'recover',
+    title: 'Restructure and recover',
+    text: 'Assess the options and build a practical plan.',
+    href: '/services#03-restructuring',
+  },
+  {
+    id: 'invest',
+    title: 'Invest with clarity',
+    text: 'Review the numbers, risks and commercial potential.',
+    href: '/services#04-transactions',
+  },
+] as const;
+
+export const industries = [
+  'Healthcare',
+  'Education',
+  'Environment and waste',
+  'Manufacturing and trading',
+  'Retail and FMCG',
+  'Infrastructure and hospitality',
+] as const;
+
 export const formServices = [
-  'Corporate and Institutional Management Advisory',
-  'CFO and Finance Transformation Advisory',
-  'Restructuring, Turnaround and Insolvency Support',
-  'Transaction, M&A and Funding Support',
-  'GCC Investor Outreach and Distressed Asset Opportunities',
-  'Feasibility Studies and Economic Advisory',
-  'Cross-Border and Professional Collaboration',
-  'Other / not yet sure',
+  'Corporate Advisory',
+  'CFO and Finance Support',
+  'Restructuring and Insolvency Support',
+  'Transactions and Feasibility',
+  'GCC Investor Outreach',
+  'Cross Border Support',
+  'Not sure yet',
 ] as const;

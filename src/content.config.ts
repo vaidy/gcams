@@ -9,15 +9,7 @@ const services = defineCollection({
     homeDescription: z.string(),
     order: z.number(),
     items: z.array(z.string()),
-  }),
-});
-
-const sectors = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/sectors' }),
-  schema: z.object({
-    title: z.string(),
-    capability: z.string(),
-    order: z.number(),
+    note: z.string().optional(),
   }),
 });
 
@@ -31,4 +23,4 @@ const insights = defineCollection({
   }),
 });
 
-export const collections = { services, sectors, insights };
+export const collections = { services, insights };

@@ -38,7 +38,7 @@ const description =
 
       <h2>Leadership</h2>
       <p>
-        {site.managerPublic}, {site.managerRole}. {site.difcWording} He is also an Insolvency Professional registered with the Insolvency and Bankruptcy Board of India.
+        {site.managerPublic}, Founder and {site.managerRole}. {site.difcWording} Registered with the Insolvency and Bankruptcy Board of India. Registration No. {site.ibbiRegistration}. Member of INSOL International.
       </p>
 
       <h2>Particulars</h2>
@@ -46,9 +46,9 @@ const description =
         Licence No. {site.licenceNumber}. Registration No. {site.registrationNumber}. Incorporated {site.incorporationDate}.
       </p>
       <p>{site.addressUae}</p>
-      <p>{site.indiaPublic}</p>
       <p>
-        UAE {site.phoneUae}. India {site.phoneIndia}.
+        {site.phoneUae}
+        {site.email ? ` | ${site.email}` : null}
       </p>
 
       <p class="disclaimer">{site.servicesDisclaimer}</p>

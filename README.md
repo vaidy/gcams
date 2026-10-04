@@ -2,7 +2,7 @@
 
 Static site for **Global Corporate Advisory and Management Services DWC-LLC**, built with Astro and meant to be hosted on **GitHub Pages** at [https://gcamsadvisory.com](https://gcamsadvisory.com).
 
-Copy lives in Markdown collections so Insights, services and sectors can grow without a redesign. Shared particulars (phones, licence numbers, DIFC wording) are in [`src/data/site.ts`](src/data/site.ts).
+Copy for services lives in Markdown. Shared particulars (phone, licence numbers, DIFC wording, industry labels) are in [`src/data/site.ts`](src/data/site.ts).
 
 ## Local
 
@@ -26,9 +26,8 @@ For a working enquiry form locally, copy `.env.example` to `.env` and set `PUBLI
 
 | Path | What to edit |
 |---|---|
-| `src/data/site.ts` | Legal name, phones, addresses, email, LinkedIn |
-| `src/content/services/*.md` | Service groups |
-| `src/content/sectors/*.md` | Sector rows |
+| `src/data/site.ts` | Legal name, UAE phone, address, email, LinkedIn, industry labels |
+| `src/content/services/*.md` | The six services |
 | `src/content/insights/*.md` | Articles (none on launch) |
 
 A new Insight is one Markdown file with `title`, `description`, `date`, and optional `draft: true`.
@@ -70,9 +69,9 @@ Redirect `http` and `www` to `https://gcamsadvisory.com` (GitHub does this once 
 
 - Confirm SPF, DKIM and DMARC on Namecheap Private Email for `ram@gcamsadvisory.com`.
 - Confirm `WEB3FORMS_ACCESS_KEY` is set on the GitHub repo and that the Web3Forms dashboard recipient is that mailbox.
-- Add the founder headshot on About (the portrait frame is reserved).
-- Add LinkedIn URLs in `site.linkedIn`.
-- Confirm post-nominals / INSOL before publishing them.
+- Add LinkedIn URLs in `site.linkedIn` if the profile address changes.
+- The IBBI registration number on Credentials still needs a check against the certificate before publication. Do not add SR-795299 unless that registration document matches it.
+- Licensed photographs for the home, About, and Services panels are not in the repo yet. Those panels stay warm paper until a file, source, and licence are added. Do not use a personal photograph.
 - Add Search Console and, if wanted, privacy-conscious analytics.
 
 ## Identity

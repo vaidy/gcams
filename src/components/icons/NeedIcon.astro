@@ -1,0 +1,30 @@
+---
+interface Props {
+  id: 'cash' | 'recover' | 'invest';
+}
+
+const { id } = Astro.props;
+---
+
+<svg class="need-card__icon" viewBox="0 0 24 24" aria-hidden="true">
+  {
+    id === 'cash' ? (
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3.5" y="6.5" width="17" height="11" rx="1.5" />
+        <circle cx="12" cy="12" r="2.2" />
+        <path d="M7 9.2h.01M17 14.8h.01" />
+      </g>
+    ) : id === 'recover' ? (
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 8h9l-2.2-2.2M14 8l-2.2 2.2" />
+        <path d="M19 16H10l2.2 2.2M10 16l2.2-2.2" />
+      </g>
+    ) : (
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 18.5h16" />
+        <path d="M7 16.5v-4.5M12 16.5V8.5M17 16.5v-7" />
+        <path d="M6.5 10.5l4.2-3.2 3.1 2 3.7-3.3" />
+      </g>
+    )
+  }
+</svg>

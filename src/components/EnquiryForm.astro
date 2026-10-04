@@ -22,11 +22,7 @@ const formReady = accessKey.length > 0;
   </div>
   <div class="field">
     <label for="organisation">Organisation</label>
-    <input id="organisation" name="organisation" type="text" autocomplete="organization" required />
-  </div>
-  <div class="field">
-    <label for="designation">Designation</label>
-    <input id="designation" name="designation" type="text" autocomplete="organization-title" required />
+    <input id="organisation" name="organisation" type="text" autocomplete="organization" />
   </div>
   <div class="field">
     <label for="email">Email</label>
@@ -42,7 +38,7 @@ const formReady = accessKey.length > 0;
     />
   </div>
   <div class="field">
-    <label for="phone">Phone / WhatsApp</label>
+    <label for="phone">Phone or WhatsApp</label>
     <input
       id="phone"
       name="phone"
@@ -50,23 +46,11 @@ const formReady = accessKey.length > 0;
       autocomplete="tel"
       inputmode="tel"
       placeholder="+971 50 000 0000…"
-      required
     />
   </div>
   <div class="field">
-    <label for="country">Country</label>
-    <input
-      id="country"
-      name="country"
-      type="text"
-      autocomplete="country-name"
-      placeholder="United Arab Emirates…"
-      required
-    />
-  </div>
-  <div class="field">
-    <label for="service">Service required</label>
-    <select id="service" name="service" required>
+    <label for="service">Service</label>
+    <select id="service" name="service">
       <option value="">Select a service…</option>
       {formServices.map((item) => <option value={item}>{item}</option>)}
     </select>
@@ -92,7 +76,7 @@ const formReady = accessKey.length > 0;
     disabled={!formReady}
     data-enquiry-submit
   >
-    Send an enquiry
+    Send enquiry
   </button>
   <p class="form-note" data-form-status role="status" aria-live="polite">
     {
@@ -158,9 +142,7 @@ const formReady = accessKey.length > 0;
         name: String(data.get('name') ?? ''),
         email: String(data.get('email') ?? ''),
         organisation: String(data.get('organisation') ?? ''),
-        designation: String(data.get('designation') ?? ''),
         phone: String(data.get('phone') ?? ''),
-        country: String(data.get('country') ?? ''),
         service: String(data.get('service') ?? ''),
         message: String(data.get('message') ?? ''),
         consent: data.get('consent') ? 'yes' : 'no',

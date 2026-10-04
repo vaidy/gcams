@@ -1,12 +1,10 @@
 ---
-title: Transaction, M&A and Funding Support
-homeTitle: Transaction and Due Diligence Support
-homeDescription: Commercial and financial analysis for acquisitions, investments, funding and strategic transactions.
+title: Transactions and Feasibility
+homeTitle: Transactions and Feasibility
+homeDescription: Assess acquisitions, new ventures and funding needs with confidence.
 order: 4
 items:
-  - Buy-side and sell-side financial analysis
-  - Financial and commercial due diligence
-  - Business plans, information memoranda and financial models
-  - Debt-raising and lender-support materials
-  - Transaction evaluation and post-deal integration support
+  - Financial due diligence
+  - Business plans and investment appraisal
+  - Funding materials and post transaction support
 ---

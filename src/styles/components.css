@@ -15,13 +15,19 @@
 }
 
 .btn--primary {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
 }
 
 .btn--primary:hover {
-  background: color-mix(in srgb, var(--ink) 88%, var(--gold));
-  color: var(--paper);
+  background: color-mix(in srgb, var(--gold) 78%, black);
+  border-color: color-mix(in srgb, var(--gold) 78%, black);
+  color: var(--ink);
+}
+
+.btn--primary:focus-visible {
+  outline-color: var(--ink);
 }
 
 .btn--ghost {
@@ -112,34 +118,15 @@
   width: 1.5rem;
   height: 1.5rem;
   margin-bottom: 0.75rem;
-  color: var(--ink);
-}
-
-.service-card:hover .service-card__icon {
   color: var(--gold);
 }
 
-.sector-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.sector-chips a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--line);
+.service-card__more {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-weight: 600;
   color: var(--ink);
-  text-decoration: none;
-}
-
-.sector-chips a:hover {
-  border-color: var(--gold);
+  cursor: pointer;
 }
 
 @media (min-width: 720px) {
@@ -157,7 +144,6 @@
 .pillar-list,
 .why-list,
 .approach-list,
-.sector-list,
 .service-block {
   list-style: none;
   margin: 0;
@@ -166,8 +152,7 @@
 
 .pillar-list li,
 .why-list li,
-.approach-list li,
-.sector-list li {
+.approach-list li {
   min-width: 0;
   padding-block: 1.15rem;
   border-top: 1px solid var(--line);
@@ -179,10 +164,16 @@
   gap: 0.85rem 1.1rem;
 }
 
+.approach-list.approach-list--three li,
+.approach-list.approach-list--three li:last-child {
+  display: block;
+  border-bottom: 0;
+  border-top: 1px solid var(--gold);
+}
+
 .pillar-list li:last-child,
 .why-list li:last-child,
-.approach-list li:last-child,
-.sector-list li:last-child {
+.approach-list li:last-child {
   border-bottom: 1px solid var(--line);
 }
 
@@ -194,7 +185,6 @@
 }
 
 .pillar-list h3,
-.sector-list h3,
 .approach-list h3 {
   margin: 0 0 0.35rem;
   font-size: 1.28rem;
@@ -203,14 +193,26 @@
 .service-block {
   padding-block: var(--space-4);
   border-top: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 1rem);
 }
 
 .service-block:last-of-type {
   border-bottom: 1px solid var(--line);
 }
 
-.service-block h2 {
+.service-block__title {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 500;
   font-size: var(--step-2);
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  color: var(--ink);
+}
+
+.service-block summary .muted {
+  display: block;
+  margin-top: 0.35rem;
 }
 
 .service-block ul {
@@ -228,18 +230,6 @@
   border-top: 1px solid var(--gold);
   color: var(--ink-muted);
   font-size: 0.95rem;
-}
-
-.portrait-slot {
-  width: min(16rem, 100%);
-  aspect-ratio: 4 / 5;
-  border: 1px solid var(--line);
-  background:
-    linear-gradient(180deg, transparent 48.8%, var(--gold) 48.8%, var(--gold) 51.2%, transparent 51.2%),
-    var(--paper-deep);
-  background-size: 2.75rem 1px, auto;
-  background-repeat: no-repeat, no-repeat;
-  background-position: 1.25rem 1.4rem, 0 0;
 }
 
 .credential {

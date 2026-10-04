@@ -12,6 +12,7 @@ export default defineConfig({
   trailingSlash: 'never',
   redirects: {
     '/insights': base || '/',
+    '/sectors': '/about#industry-experience',
   },
   integrations: [
     sitemap({

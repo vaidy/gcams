@@ -1,4 +1,5 @@
 ---
+import BrandLogo from './BrandLogo.astro';
 import SocialLinks from './SocialLinks.astro';
 import { site, whatsappUaeUrl } from '../data/site';
 import { withBase } from '../utils/withBase';
@@ -7,7 +8,9 @@ import { withBase } from '../utils/withBase';
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
-      <p class="footer-brand">{site.brand}</p>
+      <a class="footer-logo" href={withBase('/')} aria-label="GCAMS home">
+        <BrandLogo sizes="(min-width: 720px) 200px, 160px" />
+      </a>
       <p class="footer-legal">{site.legalName}</p>
       <p class="footer-meta">
         Licence No. {site.licenceNumber} | Registration No. {site.registrationNumber} | Dubai South, Dubai, UAE
@@ -31,6 +34,9 @@ import { withBase } from '../utils/withBase';
               </li>
             ))
           }
+          <li>
+            <a href={withBase('/credentials')}>Credentials</a>
+          </li>
         </ul>
       </div>
       <div>

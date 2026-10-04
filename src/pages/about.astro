@@ -2,55 +2,63 @@
 import Base from '../layouts/Base.astro';
 import PageContinue from '../components/PageContinue.astro';
 import PageKicker from '../components/PageKicker.astro';
-import { site, wayfinding } from '../data/site';
+import { industries, site, wayfinding } from '../data/site';
+import { withBase } from '../utils/withBase';
 
 const title = 'About';
-const description =
-  'GCAMS is an independent corporate advisory and management consultancy incorporated in Dubai, with leadership by Ramaswamy Chidambaram.';
+const description = site.positioning;
 ---
 
 <Base title={title} description={description} path="/about">
   <section class="page-hero">
-    <div class="wrap prose">
-      <PageKicker label={wayfinding['/about'].kicker} />
-      <h1>An independent firm in Dubai</h1>
-      <p>
-        GCAMS is an independent corporate advisory and management consultancy incorporated in Dubai, UAE. The firm was established to provide experienced, practical and commercially grounded advice to organisations navigating growth, transformation, financial stress, transactions and cross-border opportunities.
-      </p>
-      <p>
-        Our work is built around disciplined analysis, clear communication and implementable recommendations. Depending on the assignment, GCAMS may also collaborate with appropriately licensed legal, audit, tax, valuation, technical and insolvency professionals.
-      </p>
-      <p class="muted small">Incorporated {site.incorporationDate} as a {site.legalStatus}.</p>
+    <div class="wrap hero-split">
+      <div class="prose">
+        <PageKicker label={wayfinding['/about'].kicker} />
+        <h1>Experienced advice. Practical execution.</h1>
+        <p>
+          GCAMS is a Dubai based corporate advisory and management consultancy. We support businesses, investors, lenders and professional advisers with financial decisions, restructuring and business improvement.
+        </p>
+      </div>
+      <div class="photo-slot" aria-hidden="true"></div>
     </div>
   </section>
 
   <section class="section section--band">
-    <div class="wrap two-col two-col--about">
-      <div class="portrait-slot" aria-hidden="true"></div>
-      <div class="prose">
-        <h2>Leadership</h2>
-        <h3>{site.managerPublic}</h3>
-        <p class="muted">{site.managerRole}</p>
-        <p>
-          Ramaswamy Chidambaram is the Founder and Principal Advisor of GCAMS and the registered Company Manager. He is a Chartered Accountant and Cost Accountant with more than 25 years of professional experience in the UAE, together with insolvency and restructuring experience in India. He is an Insolvency Professional registered with the Insolvency and Bankruptcy Board of India and a registered Insolvency Practitioner with the DIFC Registrar of Companies under the DIFC Insolvency Law No. 1 of 2019.
-        </p>
-        <p>
-          His career includes senior finance and commercial leadership roles across diversified groups and operating businesses. His experience covers corporate finance, financial strategy, business restructuring, mergers and acquisitions, debt raising, financial due diligence, management reporting, budgeting, internal controls, SAP and business-intelligence implementation, and operational performance improvement. He has practical experience in Corporate Insolvency Resolution Process and liquidation matters from a resolution applicant's perspective, including financial due diligence, negotiations and coordination with the resolution professional and other stakeholders. On behalf of the resolution applicant, he also coordinated matters connected with proceedings before the NCLT, NCLAT and Supreme Court, working with the appointed legal and professional advisers.
-        </p>
-        <p>
-          He brings a combination of board-level perspective and hands-on execution, with particular experience in healthcare and environmental services, industrial and trading businesses, telecom and diversified corporate environments.
-        </p>
-        <p class="small muted">
-          ACA | CMA | Insolvency Professional registered with IBBI | Insolvency Practitioner registered with the DIFC Registrar of Companies
-        </p>
+    <div class="wrap prose">
+      <h2>Team and professional network</h2>
+      <h3>{site.managerPublic}</h3>
+      <p class="muted">Founder and Principal Advisor | ACA | CMA</p>
+      <p>
+        Ram brings around 30 years of finance and business experience, including more than 25 years in the UAE. His work spans corporate finance, bank funding, acquisitions, restructuring, financial controls and ERP implementation. He is a DIFC registered Insolvency Practitioner, an IBBI registered Insolvency Professional and a member of INSOL International.
+      </p>
+      <p>
+        For specialist assignments, GCAMS collaborates with appropriately qualified and licensed professionals according to the client’s needs.
+      </p>
+      <p>
+        <a href={withBase('/credentials')}>View credentials</a>
+        {site.linkedIn ? ' | ' : null}
         {
           site.linkedIn ? (
-            <p>
-              <a href={site.linkedIn} rel="noopener noreferrer">LinkedIn</a>
-            </p>
+            <a href={site.linkedIn} rel="noopener noreferrer">
+              LinkedIn
+            </a>
           ) : null
         }
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2 id="industry-experience">Industry experience</h2>
+        <p class="muted">
+          These are areas of leadership experience. They are not a list of completed GCAMS client assignments.
+        </p>
       </div>
+      <ul class="industry-labels">
+        {industries.map((label) => <li>{label}</li>)}
+      </ul>
     </div>
   </section>
   <PageContinue links={wayfinding['/about'].next} />

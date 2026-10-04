@@ -1,13 +1,10 @@
 ---
-title: Restructuring, Turnaround and Insolvency Support
-homeTitle: Restructuring and Turnaround Support
-homeDescription: Independent financial assessment, viability review, stakeholder support and implementation planning.
+title: Restructuring and Insolvency Support
+homeTitle: Restructuring and Insolvency Support
+homeDescription: Understand the options, preserve value and plan the next steps.
 order: 3
 items:
-  - Independent business and financial review
-  - Liquidity, cash-flow and working-capital assessment
-  - Viability and restructuring-option analysis
-  - Resolution-plan and turnaround support
-  - Creditor, lender and stakeholder information support
-  - Financial due diligence, claims analysis and process-management support to duly appointed professionals
+  - Business viability and liquidity reviews
+  - Turnaround and resolution plan support
+  - Financial analysis and coordination with appointed insolvency professionals
 ---

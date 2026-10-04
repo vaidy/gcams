@@ -3,11 +3,11 @@ import Base from '../layouts/Base.astro';
 import EnquiryForm from '../components/EnquiryForm.astro';
 import PageContinue from '../components/PageContinue.astro';
 import PageKicker from '../components/PageKicker.astro';
-import { site, wayfinding, whatsappIndiaUrl, whatsappUaeUrl } from '../data/site';
+import ContactIcon from '../components/icons/ContactIcon.astro';
+import { site, wayfinding, whatsappUaeUrl } from '../data/site';
 
 const title = 'Contact';
-const description =
-  'Start a confidential conversation with GCAMS in Dubai. Telephone and WhatsApp for the UAE and India liaison contact.';
+const description = 'Start a confidential conversation with GCAMS in Dubai.';
 ---
 
 <Base title={title} description={description} path="/contact">
@@ -22,41 +22,23 @@ const description =
         </div>
         <aside class="contact-aside">
           <div>
-            <h2>Registered office</h2>
+            <h2><ContactIcon id="address" /> Registered office</h2>
             <p>{site.addressUae}</p>
           </div>
           <div>
-            <h2>UAE telephone and WhatsApp</h2>
+            <h2><ContactIcon id="phone" /> UAE telephone and WhatsApp</h2>
             <p>{site.phoneUae}</p>
             <div class="contact-actions">
               <a class="btn btn--primary" href={`tel:${site.phoneUaeTel}`}>Call UAE</a>
-              <a
-                class="btn btn--ghost"
-                href={whatsappUaeUrl}
-                rel="noopener noreferrer"
-              >
+              <a class="btn btn--ghost" href={whatsappUaeUrl} rel="noopener noreferrer">
                 WhatsApp UAE
-              </a>
-            </div>
-          </div>
-          <div>
-            <p>{site.indiaPublic}</p>
-            <p>{site.phoneIndia}</p>
-            <div class="contact-actions">
-              <a class="btn btn--ghost" href={`tel:${site.phoneIndiaTel}`}>Call India</a>
-              <a
-                class="btn btn--ghost"
-                href={whatsappIndiaUrl}
-                rel="noopener noreferrer"
-              >
-                WhatsApp India
               </a>
             </div>
           </div>
           {
             site.email ? (
               <div>
-                <h2>Email</h2>
+                <h2><ContactIcon id="email" /> Email</h2>
                 <p>
                   <a href={`mailto:${site.email}`}>{site.email}</a>
                 </p>
@@ -66,7 +48,7 @@ const description =
           {
             site.linkedIn ? (
               <div>
-                <h2>LinkedIn</h2>
+                <h2><ContactIcon id="linkedin" /> LinkedIn</h2>
                 <p>
                   <a href={site.linkedIn} rel="noopener noreferrer">
                     Ramaswamy Chidambaram
