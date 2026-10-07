@@ -71,7 +71,7 @@ Redirect `http` and `www` to `https://gcamsadvisory.com` (GitHub does this once 
 - Confirm `WEB3FORMS_ACCESS_KEY` is set on the GitHub repo and that the Web3Forms dashboard recipient is that mailbox.
 - Add LinkedIn URLs in `site.linkedIn` if the profile address changes.
 - The IBBI registration number on Credentials still needs a check against the certificate before publication. Do not add SR-795299 unless that registration document matches it.
-- Home, About, and Services use generated photographs in `public/images/` (`home-business-district.webp`, `about-workspace.webp`, `services-operations.webp`). Source and licence are noted on `photographs` in `src/data/site.ts`. They are not pictures of GCAMS premises, staff, or a client. Do not use a personal photograph.
+- Home, About, and Services use conceptual brand illustrations in `public/images/` (`home-business-district.webp`, `about-workspace.webp`, `services-operations.webp`), each 1448 by 1086. Source and licence are noted on `photographs` in `src/data/site.ts`. They are decorative (`alt=""`). They are not pictures of GCAMS premises, staff, or a client. Do not use a personal photograph.
 - Add Search Console and, if wanted, privacy-conscious analytics.
 
 ## Identity

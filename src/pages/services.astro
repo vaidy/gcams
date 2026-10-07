@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import PageContinue from '../components/PageContinue.astro';
 import PageKicker from '../components/PageKicker.astro';
 import ServiceIcon from '../components/icons/ServiceIcon.astro';
 import { photographs, site, wayfinding } from '../data/site';
@@ -60,7 +59,6 @@ const description =
       <p class="disclaimer">{site.servicesNote}</p>
     </div>
   </section>
-  <PageContinue links={wayfinding['/services'].next} />
 </Base>
 
 <script>

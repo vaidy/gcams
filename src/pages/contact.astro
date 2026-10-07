@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import EnquiryForm from '../components/EnquiryForm.astro';
-import PageContinue from '../components/PageContinue.astro';
 import PageKicker from '../components/PageKicker.astro';
 import ContactIcon from '../components/icons/ContactIcon.astro';
 import { site, wayfinding, whatsappUaeUrl } from '../data/site';
@@ -61,5 +60,4 @@ const description = 'Start a confidential conversation with GCAMS in Dubai.';
       </div>
     </div>
   </section>
-  <PageContinue links={wayfinding['/contact'].next} />
 </Base>

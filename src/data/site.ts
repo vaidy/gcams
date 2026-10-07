@@ -22,14 +22,12 @@ export const site = {
   heroText:
     'GCAMS helps businesses strengthen finances, navigate change and assess opportunities. Based in Dubai, we bring practical finance leadership and restructuring experience.',
   primaryCta: 'Let’s discuss your business',
-  headerCta: 'Schedule a discussion',
   secondaryCta: 'Explore our services',
   contactHeading: 'Start a Confidential Conversation',
   contactIntro: 'Tell us briefly what you need. We will contact you to discuss the next step.',
   closeHeading: 'Let’s find the next step.',
   closeText:
     'Talk to GCAMS about your business, financial challenge or investment decision.',
-  closeCta: 'Start a confidential conversation',
   difcWording:
     'Ramaswamy Chidambaram is a registered Insolvency Practitioner with the DIFC Registrar of Companies under the DIFC Insolvency Law No. 1 of 2019.',
   difcDate: '23 June 2026',
@@ -49,78 +47,51 @@ export const site = {
 } as const;
 
 /**
- * Homepage, About, and Services photographs.
- * Source: original generated photographs, 4 October 2026.
+ * Homepage, About, and Services illustrations.
+ * Source: conceptual brand illustrations, 6 October 2026.
  * Licence: original assets created for this website.
  * They are not photographs of GCAMS premises, staff, or a client assignment.
  */
 export const photographs = {
   home: {
     src: '/images/home-business-district.webp',
-    width: 1152,
-    height: 864,
-    alt: 'A contemporary stone-and-glass building in a Dubai business district, in late-afternoon sun under a clear blue sky.',
+    width: 1448,
+    height: 1086,
+    alt: '',
   },
   about: {
     src: '/images/about-workspace.webp',
-    width: 1152,
-    height: 864,
-    alt: 'An empty modern workspace with a pale wood table and a glass wall looking onto bright daylight.',
+    width: 1448,
+    height: 1086,
+    alt: '',
   },
   services: {
     src: '/images/services-operations.webp',
-    width: 1152,
-    height: 864,
-    alt: 'A quiet warehouse aisle in daylight, with plain cartons on metal racks and an open door at the far end.',
+    width: 1448,
+    height: 1086,
+    alt: '',
   },
 } as const;
 
-/** Location label and next-step links for inner pages. Home is added in PageContinue. */
+/** Location label for inner pages. */
 export const wayfinding = {
   '/about': {
     kicker: 'About',
-    next: [
-      { href: '/services', label: 'Services' },
-      { href: '/credentials', label: 'Credentials' },
-      { href: '/contact', label: 'Start a conversation' },
-    ],
   },
   '/services': {
     kicker: 'Services',
-    next: [
-      { href: '/about#industry-experience', label: 'Industry experience' },
-      { href: '/about', label: 'About the firm' },
-      { href: '/contact', label: 'Start a conversation' },
-    ],
   },
   '/credentials': {
     kicker: 'Credentials',
-    next: [
-      { href: '/about', label: 'About the firm' },
-      { href: '/services', label: 'Services' },
-      { href: '/contact', label: 'Start a conversation' },
-    ],
   },
   '/contact': {
     kicker: 'Contact',
-    next: [
-      { href: '/services', label: 'Services' },
-      { href: '/about', label: 'About the firm' },
-    ],
   },
   '/privacy': {
     kicker: 'Privacy',
-    next: [
-      { href: '/terms', label: 'Terms of use' },
-      { href: '/contact', label: 'Contact' },
-    ],
   },
   '/terms': {
     kicker: 'Terms',
-    next: [
-      { href: '/privacy', label: 'Privacy notice' },
-      { href: '/contact', label: 'Contact' },
-    ],
   },
 } as const;
 
@@ -146,15 +117,15 @@ export const whyGcams = [
 export const approach = [
   {
     title: 'Discuss',
-    text: 'Tell us the challenge and the decision ahead.',
+    text: 'We understand your requirement and agree the scope.',
   },
   {
     title: 'Assess',
-    text: 'We review the facts and agree the scope.',
+    text: 'We review the information and evaluate the options.',
   },
   {
     title: 'Act',
-    text: 'You receive clear recommendations and agreed implementation support.',
+    text: 'You receive practical recommendations and agreed implementation support.',
   },
 ] as const;
 

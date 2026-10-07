@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import PageContinue from '../components/PageContinue.astro';
 import PageKicker from '../components/PageKicker.astro';
 import { industries, photographs, site, wayfinding } from '../data/site';
 import { withBase } from '../utils/withBase';
@@ -35,14 +34,14 @@ const description = site.positioning;
 
   <section class="section section--band">
     <div class="wrap prose">
-      <h2>Team and professional network</h2>
+      <h2>Leadership and professional collaboration</h2>
       <h3>{site.managerPublic}</h3>
       <p class="muted">Founder and Principal Advisor | ACA | CMA</p>
       <p>
         Ram brings around 30 years of finance and business experience, including more than 25 years in the UAE. His work spans corporate finance, bank funding, acquisitions, restructuring, financial controls and ERP implementation. He is a DIFC registered Insolvency Practitioner, an IBBI registered Insolvency Professional and a member of INSOL International.
       </p>
       <p>
-        For specialist assignments, GCAMS collaborates with appropriately qualified and licensed professionals according to the client’s needs.
+        For specialist assignments, GCAMS collaborates with appropriately qualified and licensed professionals according to the client’s needs. Roles and deliverables are agreed for each engagement.
       </p>
       <p>
         <a href={withBase('/credentials')}>View credentials</a>
@@ -63,7 +62,7 @@ const description = site.positioning;
       <div class="prose">
         <h2 id="industry-experience">Industry experience</h2>
         <p class="muted">
-          These are areas of leadership experience. They are not a list of completed GCAMS client assignments.
+          Sector experience gained through senior finance and business leadership roles.
         </p>
       </div>
       <ul class="industry-labels">
@@ -71,5 +70,4 @@ const description = site.positioning;
       </ul>
     </div>
   </section>
-  <PageContinue links={wayfinding['/about'].next} />
 </Base>
