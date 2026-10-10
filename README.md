@@ -46,8 +46,8 @@ In the Web3Forms dashboard, the form recipient must be `ram@gcamsadvisory.com`. 
 3. Add the Actions secret `WEB3FORMS_ACCESS_KEY` (Web3Forms access key; recipient `ram@gcamsadvisory.com`).
 4. Push `main` (or `master`). The workflow at `.github/workflows/deploy.yml` builds and deploys `dist`.
 
-Until **gcamsadvisory.com** is connected, the preview URL is `https://<user>.github.io/gcams/`. The build sets `ASTRO_BASE=/gcams` so CSS, images and links resolve under that subpath. **Remove `ASTRO_BASE` from the workflow** (or set it to empty) once the custom domain is live — the domain serves the site from `/`, not `/gcams/`.
-5. After the first green deploy, **Settings → Pages → Custom domain**: `gcamsadvisory.com`. The `public/CNAME` file already contains that host.
+The live site is **https://gcamsadvisory.com**, served from `/`. Do not set `ASTRO_BASE` in the deploy workflow. A github.io project URL such as `https://<user>.github.io/gcams/` would need `ASTRO_BASE=/gcams` only for that preview.
+5. **Settings → Pages → Custom domain**: `gcamsadvisory.com`. `public/CNAME` contains that host. Turn on **Enforce HTTPS** after GitHub issues the certificate.
 
 ### Namecheap DNS
 
