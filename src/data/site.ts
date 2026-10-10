@@ -9,8 +9,8 @@ export const site = {
   managerPublic: 'Ramaswamy Chidambaram',
   managerRole: 'Principal Advisor',
   email: 'ram@gcamsadvisory.com',
-  phoneUae: '+971 50 694 2879',
-  phoneUaeTel: '+971506942879',
+  phoneUae: '+971 50 564 3475',
+  phoneUaeTel: '+971505643475',
   addressUae:
     'Business Centre, 3rd Floor, Building A3, Business Park, Dubai South, Dubai, UAE',
   linkedIn: 'https://www.linkedin.com/in/ramchidambaram-ip/',
